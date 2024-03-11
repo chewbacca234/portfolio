@@ -1,4 +1,5 @@
 'use client';
+import { useWindowSize } from '@/hooks';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -11,20 +12,23 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
   const iconSources = props.iconSources;
   const icons: THREE.Mesh[] = [];
 
-  const sceneHeight = 80; // Component height in pixels
-  const sceneWidth = sceneHeight * iconSources.length;
-  const aspectRatio = sceneWidth / sceneHeight;
-
-  const iconSize = 25; // Icon size in units
-  const iconGap = iconSize + iconSize / 4; // Gap between icons in units
-  const target = new THREE.Vector3(
-    (iconGap * (iconSources.length - 1)) / 2,
-    0,
-    0
-  );
-  const iconRotation = new THREE.Vector2(0, 0);
-
   useEffect(() => {
+    // const window = useWindowSize();
+    console.log('window.innerWidth', window.innerWidth);
+
+    const sceneHeight = window.innerWidth > 600 ? 80 : 55; // Component height in pixels
+    const sceneWidth = sceneHeight * iconSources.length;
+    const aspectRatio = sceneWidth / sceneHeight;
+
+    const iconSize = window.innerWidth > 600 ? 25 : 16; // Icon size in units
+    const iconGap = iconSize + iconSize / 4; // Gap between icons in units
+    const target = new THREE.Vector3(
+      (iconGap * (iconSources.length - 1)) / 2,
+      0,
+      0
+    );
+    const iconRotation = new THREE.Vector2(0, 0);
+
     function iconRotationAnimation(event: MouseEvent) {
       iconRotation.y = event.clientX / window.innerWidth - 0.5;
       iconRotation.x = event.clientY / window.innerHeight - 0.5;
@@ -62,16 +66,22 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
       refContainer.current.appendChild(renderer.domElement);
 
     // 3D Objects
-    for (let i = 0; i < iconSources.length; i++) {
+    iconSources.forEach((iconSource, i) => {
       // Load an image resource for texture
-      const texture = new THREE.TextureLoader().load(iconSources[i]);
+      const texture = new THREE.TextureLoader().load(iconSource);
+
+      // TEXTURE MAP
+      const textureMap = new THREE.TextureLoader().load(iconSource);
+      textureMap.wrapS = textureMap.wrapT = THREE.ClampToEdgeWrapping;
+      textureMap.anisotropy = 16;
+      textureMap.colorSpace = THREE.SRGBColorSpace;
 
       // Create rounded cube geometry
       const geometry = new RoundedBoxGeometry(
         iconSize,
         iconSize,
         iconSize / 4,
-        iconSize / 4,
+        10,
         iconSize / 8
       );
 
@@ -83,7 +93,7 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
         new THREE.MeshPhongMaterial({ color: 0xffffff }),
         new THREE.MeshPhongMaterial({
           color: 0xffffff,
-          map: texture,
+          map: textureMap,
           side: THREE.DoubleSide,
         }),
         new THREE.MeshPhongMaterial({ color: 0xffffff }),
@@ -96,7 +106,7 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
 
       scene.add(threeIcon);
       icons.push(threeIcon);
-    }
+    });
 
     // Lights
     const directionalLight = new THREE.DirectionalLight(0xffffff, 3.5);
