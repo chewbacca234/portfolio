@@ -9,40 +9,65 @@ type AnimatedIconsProps = { iconSources: string[] };
 export default function AnimatedIcons(props: AnimatedIconsProps) {
   const refContainer = useRef<HTMLDivElement>(null);
 
-  const iconSources = props.iconSources;
+  const iconSources: string[] = props.iconSources;
   const icons: THREE.Mesh[] = [];
+
+  let scrollOffset: number = 0;
+  let lastScrollOffset: number = 0;
+  const cursorPosition: THREE.Vector2 = new THREE.Vector2(0, 0);
+  const iconRotation: THREE.Vector2 = new THREE.Vector2(0, 0);
+
+  function iconRotationUpdate(event: any) {
+    // console.log('scroll event top:', document.scrollingElement?.scrollTop);
+
+    if (event.clientX) {
+      cursorPosition.x = event.clientX;
+      cursorPosition.y = event.clientY;
+    }
+
+    if (document.scrollingElement) {
+      scrollOffset = document.scrollingElement.scrollHeight
+        ? document.scrollingElement.scrollTop
+        : scrollOffset;
+
+      lastScrollOffset = scrollOffset;
+    }
+
+    iconRotation.y = cursorPosition.x / window.innerWidth - 0.5;
+    iconRotation.x =
+      (cursorPosition.y + scrollOffset) / window.innerHeight - 0.5;
+  }
 
   useEffect(() => {
     // const window = useWindowSize();
-    console.log('window.innerWidth', window.innerWidth);
+    // console.log('window.innerWidth', window.innerWidth);
+    const sceneHeight: number = window.innerWidth > 600 ? 80 : 55; // Component height in pixels
+    const sceneWidth: number = sceneHeight * iconSources.length;
+    const aspectRatio: number = sceneWidth / sceneHeight;
 
-    const sceneHeight = window.innerWidth > 600 ? 80 : 55; // Component height in pixels
-    const sceneWidth = sceneHeight * iconSources.length;
-    const aspectRatio = sceneWidth / sceneHeight;
-
-    const iconSize = window.innerWidth > 600 ? 25 : 16; // Icon size in units
-    const iconGap = iconSize + iconSize / 4; // Gap between icons in units
-    const target = new THREE.Vector3(
+    const iconSize: number = window.innerWidth > 600 ? 25 : 16; // Icon size in units
+    const iconGap: number = iconSize + iconSize / 4; // Gap between icons in units
+    const target: THREE.Vector3 = new THREE.Vector3(
       (iconGap * (iconSources.length - 1)) / 2,
       0,
       0
     );
-    const iconRotation = new THREE.Vector2(0, 0);
 
-    function iconRotationAnimation(event: MouseEvent) {
-      iconRotation.y = event.clientX / window.innerWidth - 0.5;
-      iconRotation.x = event.clientY / window.innerHeight - 0.5;
-    }
+    cursorPosition.x = window.innerWidth / 2;
+    cursorPosition.y = window.innerHeight / 2;
+
+    // Create an event listener for the scroll
+    window.addEventListener('scroll', iconRotationUpdate);
 
     // Create an event listener for the mouse moves
-    window.addEventListener('mousemove', iconRotationAnimation);
+    window.addEventListener('mousemove', iconRotationUpdate);
 
     // Create a scene
-    const scene = new THREE.Scene();
+    const scene: THREE.Scene = new THREE.Scene();
     scene.background = null;
 
     // Create a camera
-    const camera = new THREE.OrthographicCamera(
+    const camera: THREE.OrthographicCamera = new THREE.OrthographicCamera(
       sceneWidth / -5,
       sceneWidth / 5,
       sceneHeight / 5,
@@ -54,7 +79,10 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
     camera.position.x = target.x;
 
     // Create a renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+    });
     renderer.setPixelRatio(aspectRatio);
     renderer.setSize(sceneWidth, sceneHeight);
 
@@ -68,16 +96,18 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
     // 3D Objects
     iconSources.forEach((iconSource, i) => {
       // Load an image resource for texture
-      const texture = new THREE.TextureLoader().load(iconSource);
+      const texture: THREE.Texture = new THREE.TextureLoader().load(iconSource);
 
       // TEXTURE MAP
-      const textureMap = new THREE.TextureLoader().load(iconSource);
+      const textureMap: THREE.Texture = new THREE.TextureLoader().load(
+        iconSource
+      );
       textureMap.wrapS = textureMap.wrapT = THREE.ClampToEdgeWrapping;
       textureMap.anisotropy = 16;
       textureMap.colorSpace = THREE.SRGBColorSpace;
 
       // Create rounded cube geometry
-      const geometry = new RoundedBoxGeometry(
+      const geometry: THREE.BoxGeometry = new RoundedBoxGeometry(
         iconSize,
         iconSize,
         iconSize / 4,
@@ -86,7 +116,7 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
       );
 
       // Create materials list for each face of the cube's texture
-      const materials = [
+      const materials: THREE.MeshPhongMaterial[] = [
         new THREE.MeshPhongMaterial({ color: 0xffffff }),
         new THREE.MeshPhongMaterial({ color: 0xffffff }),
         new THREE.MeshPhongMaterial({ color: 0xffffff }),
@@ -100,7 +130,7 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
       ];
 
       // Create the icon 3D object
-      const threeIcon = new THREE.Mesh(geometry, materials);
+      const threeIcon: THREE.Mesh = new THREE.Mesh(geometry, materials);
       threeIcon.receiveShadow = true;
       threeIcon.position.x = i * iconGap;
 
@@ -109,15 +139,21 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
     });
 
     // Lights
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 3.5);
+    const directionalLight: THREE.DirectionalLight = new THREE.DirectionalLight(
+      0xffffff,
+      3.5
+    );
     directionalLight.position.set(0, 20, 20); // Position the light
     scene.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0x7c7c7c, 1.5);
+    const ambientLight: THREE.AmbientLight = new THREE.AmbientLight(
+      0x7c7c7c,
+      1.5
+    );
     scene.add(ambientLight);
 
     // Animation loop
-    const animate = () => {
+    const animate: () => void = () => {
       requestAnimationFrame(animate);
 
       icons.forEach(icon => {
@@ -136,7 +172,8 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
     animate();
 
     return () => {
-      window.removeEventListener('mousemove', iconRotationAnimation);
+      window.removeEventListener('mousemove', iconRotationUpdate);
+      window.removeEventListener('scroll', iconRotationUpdate);
       renderer.dispose();
     };
   }, []);
