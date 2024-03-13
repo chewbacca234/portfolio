@@ -228,3 +228,26 @@
     transform: rotate(0deg);
   }
 }
+
+/* My styles */
+.backgroundImg{
+  position: absolute;
+  inset: 0;
+  height: auto;
+  width: 55vw;
+  max-width: 1000px;
+  z-index: -10;
+}
+
+/* Parallax styles */
+.backgroundParallax {
+  animation: backgroundParallax linear;
+  animation-timeline: scroll(y);
+}
+
+@keyframes backgroundParallax {
+  to {
+    translate: 0 200px;
+    /* transform: translate(-50px, -50px); */
+  }
+}

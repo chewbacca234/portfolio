@@ -204,6 +204,9 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'transparent' }} ref={refContainer}></div>
+    <div
+      style={{ backgroundColor: 'transparent', zIndex: 10 }}
+      ref={refContainer}
+    ></div>
   );
 }

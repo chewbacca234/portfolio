@@ -34,7 +34,17 @@ export default function Home() {
   ];
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main}`}>
+      {/* <div className={styles.parallaxBackgroundLayer}> */}
+      <Image
+        className={`${styles.backgroundImg} ${styles.backgroundParallax}`}
+        src="/images/background.png"
+        alt="splash picture"
+        width={1024}
+        height={1422}
+        priority
+      />
+      {/* </div> */}
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
