@@ -1,6 +1,13 @@
 import Image from 'next/image';
 import styles from './page.module.css';
-import { AnimatedIcons } from '@/components';
+import dynamic from 'next/dynamic';
+// Dynamic import of the ThreeJS component
+const AnimatedIcons = dynamic(
+  () => {
+    return import('../components/AnimatedIcons/AnimatedIcons');
+  },
+  { ssr: false }
+);
 
 export default function Home() {
   const iconSourcesList1: string[] = [
