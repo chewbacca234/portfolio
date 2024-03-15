@@ -4,9 +4,12 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
-type AnimatedIconsProps = { iconSources: string[] };
+type AnimatedIconsProps = {
+  iconSources: string[];
+  getAnimatedIconsLoadingState?: (isLoading: boolean) => void;
+};
 
-export default function AnimatedIcons(props: AnimatedIconsProps) {
+export function AnimatedIcons(props: AnimatedIconsProps) {
   const refContainer = useRef<HTMLDivElement>(null);
 
   let camera: THREE.OrthographicCamera,
@@ -189,6 +192,10 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
         2;
     });
     renderer.render(scene, camera);
+
+    props.getAnimatedIconsLoadingState
+      ? props.getAnimatedIconsLoadingState(false)
+      : null;
   }
 
   useEffect(() => {

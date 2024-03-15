@@ -1,0 +1,24 @@
+{
+  "iconSourcesList1": [
+    "/images/stack/html.jpg",
+    "/images/stack/css.jpg",
+    "/images/stack/javascript.jpg",
+    "/images/stack/nodejs-2.jpg",
+    "/images/stack/react.jpg",
+    "/images/stack/react-native.jpg",
+    "/images/stack/flutter.jpg"
+  ],
+
+  "iconSourcesList2": [
+    "/images/stack/next.jpg",
+    "/images/stack/firebase.jpg",
+    "/images/stack/mongodb.jpg",
+    "/images/stack/express.jpg"
+  ],
+
+  "iconSourcesList3": [
+    "/images/stack/github.jpg",
+    "/images/stack/vercel.jpg",
+    "/images/stack/expo.jpg"
+  ]
+}

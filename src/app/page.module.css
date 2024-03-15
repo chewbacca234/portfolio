@@ -14,7 +14,7 @@
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
-  z-index: 2;
+  z-index: 20;
   font-family: var(--font-mono);
 }
 
@@ -23,6 +23,18 @@
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+.animatedIconsContainer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.animatedIconsContainer p {
+  font-size: 2rem;
+  font-family: var(--font-mono);
 }
 
 .description p {
@@ -253,6 +265,12 @@
   width: 55vw;
   max-width: 1000px;
   z-index: -10;
+}
+
+.animatedIconSkeletonContainer {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
 }
 
 /* Parallax styles */

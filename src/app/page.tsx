@@ -1,37 +1,49 @@
+'use client';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import styles from './page.module.css';
-import dynamic from 'next/dynamic';
+import { CSSProperties, useState } from 'react';
+import { TypeWriter } from '@/components';
+import iconSourcesList from '../../public/datas/techStack.json';
 // Dynamic import of the ThreeJS component
 const AnimatedIcons = dynamic(
   () => {
-    return import('../components/AnimatedIcons/AnimatedIcons');
+    return import('@/components');
   },
   { ssr: false }
 );
 
 export default function Home() {
-  const iconSourcesList1: string[] = [
-    '/images/stack/html.jpg',
-    '/images/stack/css.jpg',
-    '/images/stack/javascript.jpg',
-    '/images/stack/nodejs-2.jpg',
-    '/images/stack/react.jpg',
-    '/images/stack/react-native.jpg',
-    '/images/stack/flutter.jpg',
-  ];
+  const [animatedIconsIsLoading, setAnimatedIconsIsLoading] = useState(true);
+  const [timeoutFinished, settimeoutFinished] = useState(false);
 
-  const iconSourcesList2: string[] = [
-    '/images/stack/next.jpg',
-    '/images/stack/firebase.jpg',
-    '/images/stack/mongodb.jpg',
-    '/images/stack/express.jpg',
-  ];
+  function getAnimatedIconsLoadingState(isLoading: boolean) {
+    setAnimatedIconsIsLoading(isLoading);
+  }
 
-  const iconSourcesList3: string[] = [
-    '/images/stack/github.jpg',
-    '/images/stack/vercel.jpg',
-    '/images/stack/expo.jpg',
-  ];
+  setTimeout(() => {
+    settimeoutFinished(true);
+  }, 750);
+
+  const animatedIconsLoadingStyle: () => CSSProperties = () => {
+    const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
+    const width: string = `${80 * iconSourcesList.iconSourcesList1.length}`;
+    if (animatedIconsIsLoading || !timeoutFinished) {
+      return { display: 'flex', height, width };
+    } else {
+      return { display: 'none', height, width };
+    }
+  };
+
+  const animatedIconsStyle: () => CSSProperties = () => {
+    const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
+    const width: string = `${80 * iconSourcesList.iconSourcesList1.length}`;
+    if (animatedIconsIsLoading || !timeoutFinished) {
+      return { display: 'none', height, width };
+    } else {
+      return { display: 'flex', height, width, gap: 0 };
+    }
+  };
 
   return (
     <main className={`${styles.main}`}>
@@ -58,9 +70,29 @@ export default function Home() {
         />
       </div>
 
-      <AnimatedIcons iconSources={iconSourcesList1}></AnimatedIcons>
-      <AnimatedIcons iconSources={iconSourcesList2}></AnimatedIcons>
-      <AnimatedIcons iconSources={iconSourcesList3}></AnimatedIcons>
+      <div
+        style={animatedIconsLoadingStyle()}
+        className={styles.animatedIconsContainer}
+      >
+        <p>My Tech Stack is comming</p>
+        <p>Wait a little bit...</p>
+      </div>
+      <div
+        style={animatedIconsStyle()}
+        className={styles.animatedIconsContainer}
+      >
+        <AnimatedIcons
+          iconSources={iconSourcesList.iconSourcesList1}
+        ></AnimatedIcons>
+        <AnimatedIcons
+          iconSources={iconSourcesList.iconSourcesList2}
+        ></AnimatedIcons>
+        <AnimatedIcons
+          iconSources={iconSourcesList.iconSourcesList3}
+          getAnimatedIconsLoadingState={getAnimatedIconsLoadingState}
+        ></AnimatedIcons>
+      </div>
+      <TypeWriter />
 
       <div className={styles.grid}>
         <a
