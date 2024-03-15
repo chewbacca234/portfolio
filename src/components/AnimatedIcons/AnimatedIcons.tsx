@@ -27,22 +27,24 @@ export default function AnimatedIcons(props: AnimatedIconsProps) {
   const cursorPosition: THREE.Vector2 = new THREE.Vector2(0, 0);
   const iconRotation: THREE.Vector2 = new THREE.Vector2(0, 0);
 
+  const smallScreenMaxWidth: number = 700;
+  let isSmallScreen: boolean = window.innerWidth <= smallScreenMaxWidth;
+
   // Set scene parameters
   function setSceneParams(): void {
-    sceneHeight = window.innerWidth > 600 ? 80 : 55; // Component height in pixels
+    sceneHeight = isSmallScreen ? 55 : 80; // Component height in pixels
     sceneWidth = sceneHeight * iconSources.length;
     aspectRatio = sceneWidth / sceneHeight;
 
-    iconSize = window.innerWidth > 600 ? 25 : 16; // Icon size in units
+    iconSize = isSmallScreen ? 16 : 25; // Icon size in units
     iconGap = iconSize + iconSize / 4; // Gap between icons in units
   }
 
   // Update scene on window resize
   function onWindowResize(): void {
+    isSmallScreen = window.innerWidth <= smallScreenMaxWidth;
     setSceneParams();
-
     renderer.setSize(sceneWidth, sceneHeight);
-
     camera.updateProjectionMatrix();
   }
 
