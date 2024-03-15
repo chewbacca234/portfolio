@@ -35,47 +35,25 @@ export default function Home() {
 
   return (
     <main className={`${styles.main}`}>
-      {/* <div className={styles.parallaxBackgroundLayer}> */}
       <Image
         className={`${styles.backgroundImg} ${styles.backgroundParallax}`}
         src="/images/background.png"
-        alt="splash picture"
+        alt="splash background"
         width={1024}
         height={1422}
         priority
       />
-      {/* </div> */}
       <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+        <p>CD Fullstack | Carine Dupuis</p>
       </div>
 
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          src="/images/CD_Fullstack_logo_600.png"
+          alt="CD Fullstack Logo"
+          width={600}
+          height={600}
           priority
         />
       </div>
@@ -134,6 +112,20 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+        <div style={{ height: '1000px' }}></div>
+      </div>
+      <div className={styles.copyright}>
+        <p>
+          By Carine Dupuis
+          <Image
+            src="/images/CD_Fullstack_logo_300.png"
+            alt="CD Fullstack Logo mini"
+            className={styles.miniLogo}
+            width={300}
+            height={300}
+            priority
+          />
+        </p>
       </div>
     </main>
   );

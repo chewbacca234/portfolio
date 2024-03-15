@@ -18,7 +18,7 @@
   font-family: var(--font-mono);
 }
 
-.description a {
+.copyright p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,7 @@
 
 .center::before,
 .center::after {
-  content: "";
+  content: '';
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -106,8 +106,34 @@
 }
 
 .logo {
-  position: relative;
+  width: 10vw;
+  height: auto;
+  min-width: 100px;
 }
+
+.miniLogo {
+  width: 30px;
+  height: auto;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  align-items: flex-end;
+  pointer-events: none;
+  inset: auto 0 0;
+  padding: 2rem;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(var(--background-end-rgb)) 40%
+  );
+  z-index: 1;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -160,12 +186,12 @@
     font-size: 0.8rem;
   }
 
-  .description a {
-    padding: 1rem;
+  .copyright {
+    padding: 2rem;
+    height: 16vh;
   }
 
-  .description p,
-  .description div {
+  .description p {
     display: flex;
     justify-content: center;
     position: fixed;
@@ -188,18 +214,8 @@
     backdrop-filter: blur(24px);
   }
 
-  .description div {
-    align-items: flex-end;
-    pointer-events: none;
-    inset: auto 0 0;
-    padding: 2rem;
-    height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
-    z-index: 1;
+  .logo {
+    margin-top: -8vh;
   }
 }
 
@@ -211,12 +227,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .vercelLogo {
+  /* .vercelLogo {
     filter: invert(1);
-  }
+  } */
 
   .logo {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+    filter: drop-shadow(0 0 0.3rem #ffffff70);
   }
 }
 
@@ -230,7 +246,7 @@
 }
 
 /* My styles */
-.backgroundImg{
+.backgroundImg {
   position: absolute;
   inset: 0;
   height: auto;
