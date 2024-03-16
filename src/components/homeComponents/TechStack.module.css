@@ -1,0 +1,19 @@
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: -1;
+}
+
+.container p {
+  font-size: 2rem;
+  font-family: var(--font-mono);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .container p {
+    font-size: 1rem;
+  }
+}

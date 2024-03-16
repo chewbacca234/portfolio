@@ -1,50 +1,15 @@
-'use client';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import styles from './page.module.css';
-import { CSSProperties, useState } from 'react';
-import { TypeWriter } from '@/components';
-import iconSourcesList from '../../public/datas/techStack.json';
-// Dynamic import of the ThreeJS component
-const AnimatedIcons = dynamic(
-  () => {
-    return import('@/components');
-  },
-  { ssr: false }
-);
+import {
+  Contact,
+  Experiences,
+  Projects,
+  Skills,
+  TechStack,
+  TypeWriter,
+} from '@/components';
 
 export default function Home() {
-  const [animatedIconsIsLoading, setAnimatedIconsIsLoading] = useState(true);
-  const [timeoutFinished, settimeoutFinished] = useState(false);
-
-  function getAnimatedIconsLoadingState(isLoading: boolean) {
-    setAnimatedIconsIsLoading(isLoading);
-  }
-
-  setTimeout(() => {
-    settimeoutFinished(true);
-  }, 750);
-
-  const animatedIconsLoadingStyle: () => CSSProperties = () => {
-    const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
-    const width: string = `${80 * iconSourcesList.iconSourcesList1.length}`;
-    if (animatedIconsIsLoading || !timeoutFinished) {
-      return { display: 'flex', height, width };
-    } else {
-      return { display: 'none', height, width };
-    }
-  };
-
-  const animatedIconsStyle: () => CSSProperties = () => {
-    const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
-    const width: string = `${80 * iconSourcesList.iconSourcesList1.length}`;
-    if (animatedIconsIsLoading || !timeoutFinished) {
-      return { display: 'none', height, width };
-    } else {
-      return { display: 'flex', height, width, gap: 0 };
-    }
-  };
-
   return (
     <main className={`${styles.main}`}>
       <Image
@@ -55,9 +20,6 @@ export default function Home() {
         height={1422}
         priority
       />
-      <div className={styles.description}>
-        <p>CD Fullstack | Carine Dupuis</p>
-      </div>
 
       <div className={styles.center}>
         <Image
@@ -70,31 +32,13 @@ export default function Home() {
         />
       </div>
 
-      <div
-        style={animatedIconsLoadingStyle()}
-        className={styles.animatedIconsContainer}
-      >
-        <p>My Tech Stack is comming</p>
-        <p>Wait a little bit...</p>
-      </div>
-      <div
-        style={animatedIconsStyle()}
-        className={styles.animatedIconsContainer}
-      >
-        <AnimatedIcons
-          iconSources={iconSourcesList.iconSourcesList1}
-        ></AnimatedIcons>
-        <AnimatedIcons
-          iconSources={iconSourcesList.iconSourcesList2}
-        ></AnimatedIcons>
-        <AnimatedIcons
-          iconSources={iconSourcesList.iconSourcesList3}
-          getAnimatedIconsLoadingState={getAnimatedIconsLoadingState}
-        ></AnimatedIcons>
-      </div>
-      <TypeWriter />
+      <TechStack />
+      <Projects />
+      <Experiences />
+      <Skills />
+      <Contact />
 
-      <div className={styles.grid}>
+      {/* <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -144,21 +88,7 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-        <div style={{ height: '1000px' }}></div>
-      </div>
-      <div className={styles.copyright}>
-        <p>
-          By Carine Dupuis
-          <Image
-            src="/images/CD_Fullstack_logo_300.png"
-            alt="CD Fullstack Logo mini"
-            className={styles.miniLogo}
-            width={300}
-            height={300}
-            priority
-          />
-        </p>
-      </div>
+      </div> */}
     </main>
   );
 }

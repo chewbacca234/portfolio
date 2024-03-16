@@ -1,3 +1,4 @@
+'use client';
 import TypewriterComponent from 'typewriter-effect';
 
 export function TypeWriter() {

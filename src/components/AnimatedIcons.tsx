@@ -1,5 +1,4 @@
 'use client';
-import { useWindowSize } from '@/hooks';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
