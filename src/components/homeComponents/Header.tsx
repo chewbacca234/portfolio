@@ -1,7 +1,10 @@
-import { NavButton } from '@/components';
 import styles from './Header.module.css';
+import Link from 'next/link';
 
-const navItems = [
+const navItems: {
+  label: string;
+  url: string;
+}[] = [
   { label: `Projects`, url: `#projects` },
   { label: `Experiences`, url: `#experiences` },
   { label: `Skills`, url: `#skills` },
@@ -14,9 +17,9 @@ export function Header() {
       <p>CD Fullstack | Carine Dupuis</p>
       <nav className={styles.nav}>
         {navItems.map(({ label, url }) => (
-          <NavButton key={label} href={url}>
+          <Link key={label} className="button" type="button" href={url}>
             {label}
-          </NavButton>
+          </Link>
         ))}
       </nav>
     </header>

@@ -24,28 +24,18 @@
 }
 
 /* Little screens */
-@media (max-width: 1000px) {
+@media (max-width: 999px) {
   .header {
     padding: 3rem 2%;
   }
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (max-width: 899px) {
   .header {
     font-size: 0.8rem;
-  }
-
-  .header p {
-    display: flex;
-    justify-content: center;
     position: fixed;
-    width: 100%;
-    align-items: center;
-    inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
-    border-radius: 0;
-    border: none;
+    padding: 1rem 3%;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
     background: linear-gradient(
       to bottom,
@@ -54,5 +44,21 @@
     );
     background-clip: padding-box;
     backdrop-filter: blur(24px);
+  }
+
+  .header p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 699px) {
+  .header nav {
+    margin: 0;
   }
 }
