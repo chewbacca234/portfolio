@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Footer, Header } from '@/components';
+import { DarkModeProvider } from '@/providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,9 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <DarkModeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </DarkModeProvider>
       </body>
     </html>
   );

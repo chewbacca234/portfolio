@@ -21,7 +21,7 @@ export function TechStack() {
 
   setTimeout(() => {
     settimeoutFinished(true);
-  }, 750);
+  }, 800);
 
   const loadingStyle: () => CSSProperties = () => {
     const height: string = `${80 * Object.keys(iconSourcesList).length}px`;

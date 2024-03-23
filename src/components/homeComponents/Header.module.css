@@ -20,6 +20,7 @@
 .nav {
   display: flex;
   width: fit-content;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -61,4 +62,19 @@
   .header nav {
     margin: 0;
   }
+}
+
+.themeSwitchBtn {
+  padding: 0.3rem;
+  min-height: 2rem;
+  min-width: 2rem;
+}
+
+.themeSwitchBtn:hover {
+  background-color: rgba(var(--foreground-rgb), 0.2);
+  border: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-radius: var(--border-radius);
+  padding: 0.3rem;
+  min-height: 2rem;
+  min-width: 2rem;
 }

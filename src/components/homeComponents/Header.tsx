@@ -1,5 +1,9 @@
+'use client';
 import styles from './Header.module.css';
 import Link from 'next/link';
+import { FiMoon, FiSun } from 'react-icons/fi';
+import { useTheme } from 'next-themes';
+import { useState } from 'react';
 
 const navItems: {
   label: string;
@@ -12,6 +16,10 @@ const navItems: {
 ];
 
 export function Header() {
+  const { theme, setTheme } = useTheme();
+
+  console.log('theme', theme);
+
   return (
     <header className={styles.header}>
       <p>CD Fullstack | Carine Dupuis</p>
@@ -21,6 +29,23 @@ export function Header() {
             {label}
           </Link>
         ))}
+        {theme !== 'light' ? (
+          <FiSun
+            size="1.5rem"
+            onClick={() => setTheme('light')}
+            cursor="pointer"
+            className={styles.themeSwitchBtn}
+            title="Switch to light mode"
+          />
+        ) : (
+          <FiMoon
+            size="1.5rem"
+            onClick={() => setTheme('dark')}
+            cursor="pointer"
+            className={styles.themeSwitchBtn}
+            title="Switch to dark mode"
+          />
+        )}
       </nav>
     </header>
   );
