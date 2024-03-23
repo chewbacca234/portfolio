@@ -1,3 +1,4 @@
+export { Presentation } from './Presentation';
 export { Contact } from './Contact';
 export { Experiences } from './Experiences';
 export { Footer } from './Footer';

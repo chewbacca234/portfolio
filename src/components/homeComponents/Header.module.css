@@ -3,6 +3,9 @@
 .headerL,
 .headerM,
 .headerS {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,11 +17,13 @@
   padding: 4rem 5%;
 }
 
-.headerXL p,
-.headerL p,
-.headerM p,
-.headerS p {
+.headerXL h1,
+.headerL h1,
+.headerM h1,
+.headerS h1 {
   padding: 1rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
   background-color: rgba(var(--callout-rgb), 0.5);
   border: 1px solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
@@ -70,8 +75,8 @@
   backdrop-filter: blur(24px);
 }
 
-.headerM p,
-.headerS p {
+.headerM h1,
+.headerS h1 {
   display: flex;
   justify-content: center;
   align-items: center;

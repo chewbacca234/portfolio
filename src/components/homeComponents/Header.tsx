@@ -3,7 +3,6 @@ import styles from './Header.module.css';
 import Link from 'next/link';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
-import { CSSProperties, useState } from 'react';
 import { useScrollPosition, useWindowSize } from '@/hooks';
 
 const navItems: {
@@ -18,41 +17,29 @@ const navItems: {
 
 export function Header() {
   const { theme, setTheme } = useTheme();
-  const windowSize: {
-    innerHeight: number;
-    innerWidth: number;
-  } = useWindowSize();
-  const scrollPosition: number = useScrollPosition();
+  const { screenType } = useWindowSize();
+  const scrollPosition = useScrollPosition();
 
-  console.log('theme:', theme);
-  console.log('Window Size:', windowSize);
-  console.log('Scroll Position:', scrollPosition);
-
-  const screenSize: 'XL-screens' | 'L-screens' | 'M-screens' | 'S-screens' =
-    windowSize.innerWidth >= 1000
-      ? 'XL-screens'
-      : windowSize.innerWidth >= 900
-      ? 'L-screens'
-      : windowSize.innerWidth >= 800
-      ? 'M-screens'
-      : 'S-screens';
+  // console.log('theme:', theme);
+  // console.log('Window Size:', windowSize);
+  // console.log('Scroll Position:', scrollPosition);
 
   let containerStyle: string;
-  if (screenSize === 'XL-screens') {
+  if (screenType === 'XL-screens') {
     // Large screens styles
     if (scrollPosition < 60) {
       containerStyle = styles.headerXL;
     } else {
       containerStyle = styles.headerM;
     }
-  } else if (screenSize === 'L-screens') {
+  } else if (screenType === 'L-screens') {
     // Medium screens styles
     if (scrollPosition < 48) {
       containerStyle = styles.headerL;
     } else {
       containerStyle = styles.headerM;
     }
-  } else if (screenSize === 'M-screens') {
+  } else if (screenType === 'M-screens') {
     // small screens styles
     containerStyle = styles.headerM;
   } else {
@@ -62,9 +49,9 @@ export function Header() {
 
   return (
     <header className={containerStyle}>
-      <p>CD Fullstack | Carine Dupuis</p>
+      <h1>CD Fullstack | Carine Dupuis</h1>
       <nav className={styles.nav}>
-        {screenSize !== 'S-screens'
+        {screenType !== 'S-screens'
           ? navItems.map(({ label, url }) => (
               <Link key={label} className="button" type="button" href={url}>
                 {label}

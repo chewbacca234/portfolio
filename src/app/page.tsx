@@ -3,10 +3,10 @@ import styles from './page.module.css';
 import {
   Contact,
   Experiences,
+  Presentation,
   Projects,
   Skills,
   TechStack,
-  TypeWriter,
 } from '@/components';
 
 export default function Home() {
@@ -21,17 +21,7 @@ export default function Home() {
         priority
       />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/images/CD_Fullstack_logo_600.png"
-          alt="CD Fullstack Logo"
-          width={600}
-          height={600}
-          priority
-        />
-      </div>
-
+      <Presentation />
       <TechStack />
       <Projects />
       <Experiences />

@@ -29,7 +29,7 @@ export function AnimatedIcons(props: AnimatedIconsProps) {
   const cursorPosition: THREE.Vector2 = new THREE.Vector2(0, 0);
   const iconRotation: THREE.Vector2 = new THREE.Vector2(0, 0);
 
-  const smallScreenMaxWidth: number = 700;
+  const smallScreenMaxWidth: number = 799;
   let isSmallScreen: boolean = window.innerWidth <= smallScreenMaxWidth;
 
   // Set scene parameters

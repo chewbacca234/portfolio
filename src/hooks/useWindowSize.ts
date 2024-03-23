@@ -7,6 +7,15 @@ export const useWindowSize = () => {
     innerWidth: window.innerWidth,
   });
 
+  const screenType: 'XL-screens' | 'L-screens' | 'M-screens' | 'S-screens' =
+    windowSize.innerWidth >= 1000
+      ? 'XL-screens'
+      : windowSize.innerWidth >= 900
+      ? 'L-screens'
+      : windowSize.innerWidth >= 800
+      ? 'M-screens'
+      : 'S-screens';
+
   useEffect(() => {
     const windowSizeHandler = () => {
       setWindowSize({
@@ -21,5 +30,5 @@ export const useWindowSize = () => {
     };
   }, []);
 
-  return windowSize;
+  return { windowSize, screenType };
 };
