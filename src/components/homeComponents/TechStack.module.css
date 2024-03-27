@@ -1,18 +1,32 @@
+.stackContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-width: 3px;
+  border-style: solid;
+  border-image-source: linear-gradient(
+    to right,
+    transparent,
+    rgb(var(--foreground-rgb)),
+    transparent
+  );
+  border-image-width: 1px 0 0 0;
+  border-image-slice: 1;
+  margin-bottom: 6rem;
+}
 .container {
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
-  z-index: -1;
 }
 
 .container p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: var(--font-mono);
 }
 
 /* Mobile */
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .container p {
     font-size: 1rem;
   }

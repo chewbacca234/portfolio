@@ -30,7 +30,7 @@ export function Presentation() {
                 className={
                   screenType === 'S-screens' ? styles.logoS : styles.logoL
                 }
-                src="/images/CD_Fullstack_logo_600.png"
+                src="/images/logo-CDFullstack-600.png"
                 alt="CD Fullstack Logo"
                 width={300}
                 height={300}
@@ -48,7 +48,7 @@ export function Presentation() {
                 className={
                   screenType === 'S-screens' ? styles.logoS : styles.logoL
                 }
-                src="/images/profil_4.png"
+                src="/images/profile_PRO_600.png"
                 alt="CD Fullstack Logo"
                 width={300}
                 height={300}

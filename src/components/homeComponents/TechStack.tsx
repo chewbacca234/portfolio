@@ -21,7 +21,7 @@ export function TechStack() {
 
   setTimeout(() => {
     settimeoutFinished(true);
-  }, 800);
+  }, 200);
 
   const loadingStyle: () => CSSProperties = () => {
     const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
@@ -44,10 +44,11 @@ export function TechStack() {
   };
 
   return (
-    <div id="stack">
+    <div id="stack" className={styles.stackContainer}>
+      <h2>MyTeckStack</h2>
       <div style={loadingStyle()} className={styles.container}>
-        <p>My Tech Stack is comming</p>
-        <p>Wait a little bit...</p>
+        <p>is comming soon...</p>
+        {/* <p>Wait a little bit...</p> */}
       </div>
       <div style={iconsContainerStyle()} className={styles.container}>
         <AnimatedIcons
