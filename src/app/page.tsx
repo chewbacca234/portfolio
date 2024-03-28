@@ -13,41 +13,22 @@ export default function Home() {
   return (
     <main className={`${styles.main}`}>
       <Image
-        className={`${styles.backgroundImg} ${styles.backgroundParallax}`}
-        src="/images/background.png"
+        className={`${styles.backgroundImgTop} ${styles.backgroundParallax}`}
+        src="/images/background_1.png"
         alt="splash background"
         width={1024}
         height={1422}
         priority
       />
       <Image
-        className={`${styles.backgroundImg} ${styles.backgroundParallax}`}
-        src="/images/background.png"
+        className={`${styles.backgroundImgMiddle} ${styles.backgroundParallax}`}
+        src="/images/background_4.png"
         alt="splash background"
         width={1024}
         height={1422}
-        style={{
-          transform: 'rotate(38deg) scale(-1.3,1.2)',
-          inset: '100% 0 auto auto',
-          right: -150,
-        }}
-      />
-      <Image
-        className={`${styles.backgroundImg} ${styles.backgroundParallax}`}
-        src="/images/background.png"
-        alt="splash background"
-        width={1024}
-        height={1422}
-        style={{
-          transform: 'scale(.9,-1)',
-          inset: '200% auto auto 0',
-          left: -150,
-          bottom: -50,
-        }}
       />
 
       <Presentation />
-      <TechStack />
       <Projects />
       <Experiences />
       <Skills />

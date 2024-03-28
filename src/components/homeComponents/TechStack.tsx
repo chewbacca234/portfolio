@@ -45,9 +45,9 @@ export function TechStack() {
 
   return (
     <div id="stack" className={styles.stackContainer}>
-      <h2>MyTeckStack</h2>
+      {/* <h2>MyTeckStack</h2> */}
       <div style={loadingStyle()} className={styles.container}>
-        <p>is comming soon...</p>
+        <p>MyTeckStack is comming soon...</p>
         {/* <p>Wait a little bit...</p> */}
       </div>
       <div style={iconsContainerStyle()} className={styles.container}>

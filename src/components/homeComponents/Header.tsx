@@ -1,7 +1,7 @@
 'use client';
 import styles from './Header.module.css';
 import Link from 'next/link';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FiMenu, FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
 import { useScrollPosition, useWindowSize } from '@/hooks';
 
@@ -26,56 +26,62 @@ export function Header() {
 
   let containerStyle: string;
   if (screenType === 'XL-screens') {
-    // Large screens styles
+    // Extra Large screens styles
     if (scrollPosition < 60) {
-      containerStyle = styles.headerXL;
+      containerStyle = styles.header;
     } else {
-      containerStyle = styles.headerM;
+      containerStyle = styles.sticky;
     }
-  } else if (screenType === 'L-screens') {
-    // Medium screens styles
+  } else if (screenType === 'L-screens' || 'M-screens') {
+    // Large screens styles
     if (scrollPosition < 48) {
-      containerStyle = styles.headerL;
+      containerStyle = styles.header;
     } else {
-      containerStyle = styles.headerM;
+      containerStyle = styles.sticky;
     }
-  } else if (screenType === 'M-screens') {
-    // small screens styles
-    containerStyle = styles.headerM;
   } else {
     // Smaller screens & mobile styles
-    containerStyle = styles.headerS;
+    containerStyle = styles.header;
   }
 
   return (
     <header className={containerStyle}>
-      <h1>CD Fullstack | Carine Dupuis</h1>
-      <nav className={styles.nav}>
-        {screenType !== 'S-screens'
-          ? navItems.map(({ label, url }) => (
+      <div className={styles.mainContent}>
+        <h1 className={styles.title}>CD Fullstack | Carine Dupuis</h1>
+        <nav className={styles.nav}>
+          {screenType !== 'S-screens' ? (
+            navItems.map(({ label, url }) => (
               <Link key={label} className="button" type="button" href={url}>
                 {label}
               </Link>
             ))
-          : null}
-        {theme !== 'light' ? (
-          <FiSun
-            size="1.5rem"
-            onClick={() => setTheme('light')}
-            cursor="pointer"
-            className={styles.themeSwitchBtn}
-            title="Switch to light mode"
-          />
-        ) : (
-          <FiMoon
-            size="1.5rem"
-            onClick={() => setTheme('dark')}
-            cursor="pointer"
-            className={styles.themeSwitchBtn}
-            title="Switch to dark mode"
-          />
-        )}
-      </nav>
+          ) : (
+            <FiMenu
+              size="1.5rem"
+              onClick={() => null}
+              cursor="pointer"
+              className={styles.menu}
+            />
+          )}
+        </nav>
+      </div>
+      {theme !== 'light' ? (
+        <FiSun
+          size="1.5rem"
+          onClick={() => setTheme('light')}
+          cursor="pointer"
+          className={styles.themeSwitchBtn}
+          title="Switch to light mode"
+        />
+      ) : (
+        <FiMoon
+          size="1.5rem"
+          onClick={() => setTheme('dark')}
+          cursor="pointer"
+          className={styles.themeSwitchBtn}
+          title="Switch to dark mode"
+        />
+      )}
     </header>
   );
 }

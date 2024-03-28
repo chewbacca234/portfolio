@@ -1,35 +1,18 @@
 'use client';
 import Image from 'next/image';
 import styles from './Presentation.module.css';
-import { useWindowSize } from '@/hooks';
+import {} from '@/hooks';
+import { TechStack } from '.';
 
 export function Presentation() {
-  const { screenType } = useWindowSize();
-
-  //   TODO: Refactor dtyles conditions
-
   return (
     <div className={styles.container} id="presentation">
-      <div
-        className={screenType === 'S-screens' ? styles.centerS : styles.centerL}
-      >
-        <div
-          className={
-            screenType === 'S-screens' ? styles.flipCardS : styles.flipCardL
-          }
-        >
+      <div className={styles.center}>
+        <div className={styles.flipCard}>
           <div className={styles.flipCardInner}>
-            <div
-              className={
-                screenType === 'S-screens'
-                  ? styles.flipCardFrontS
-                  : styles.flipCardFrontL
-              }
-            >
+            <div className={styles.flipCardFront}>
               <Image
-                className={
-                  screenType === 'S-screens' ? styles.logoS : styles.logoL
-                }
+                className={styles.logo}
                 src="/images/logo-CDFullstack-600.png"
                 alt="CD Fullstack Logo"
                 width={300}
@@ -37,17 +20,9 @@ export function Presentation() {
                 priority
               />
             </div>
-            <div
-              className={
-                screenType === 'S-screens'
-                  ? styles.flipCardBackS
-                  : styles.flipCardBackL
-              }
-            >
+            <div className={styles.flipCardBack}>
               <Image
-                className={
-                  screenType === 'S-screens' ? styles.logoS : styles.logoL
-                }
+                className={styles.logo}
                 src="/images/profile_PRO_600.png"
                 alt="CD Fullstack Logo"
                 width={300}
@@ -58,6 +33,7 @@ export function Presentation() {
           </div>
         </div>
       </div>
+      <TechStack />
     </div>
   );
 }

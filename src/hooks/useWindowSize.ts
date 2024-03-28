@@ -8,11 +8,11 @@ export const useWindowSize = () => {
   });
 
   const screenType: 'XL-screens' | 'L-screens' | 'M-screens' | 'S-screens' =
-    windowSize.innerWidth >= 1000
+    windowSize.innerWidth >= 1200
       ? 'XL-screens'
-      : windowSize.innerWidth >= 900
+      : windowSize.innerWidth >= 992
       ? 'L-screens'
-      : windowSize.innerWidth >= 800
+      : windowSize.innerWidth >= 768
       ? 'M-screens'
       : 'S-screens';
 

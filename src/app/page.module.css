@@ -4,8 +4,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
+  padding-top: 0;
   /* padding-bottom: 8.5rem; */
   min-height: 100vh;
+  max-width: 100%;
 }
 
 .code {
@@ -114,13 +116,18 @@
 }
 
 /* My styles */
-.backgroundImg {
+.backgroundImgTop,
+.backgroundImgMiddle {
   position: absolute;
   inset: 0;
   height: auto;
   width: 55vw;
   max-width: 1000px;
   z-index: -10;
+}
+
+.backgroundImgMiddle {
+  inset: 60% 0 auto auto;
 }
 
 .animatedIconSkeletonContainer {
@@ -131,13 +138,12 @@
 
 /* Parallax styles */
 .backgroundParallax {
-  animation: backgroundParallax linear;
+  animation: parallaxEffect linear;
   animation-timeline: scroll(y);
 }
 
-@keyframes backgroundParallax {
+@keyframes parallaxEffect {
   to {
-    translate: 0 300px;
-    /* transform: translate(-50px, -50px); */
+    translate: 0 1000px;
   }
 }
