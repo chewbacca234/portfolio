@@ -13,8 +13,17 @@ export const metadata: Metadata = {
   applicationName: 'Portfolio Carine Dupuis',
   creator: 'Carine Dupuis | CD Fullstack',
   generator: 'Next.js',
-  keywords:
-    'react, nextjs, threejs, portfolio, fullsatck, web application, mobile application, responsive',
+  keywords: [
+    'react',
+    'nextjs',
+    'threejs',
+    'portfolio',
+    'fullsatck',
+    'web application',
+    'mobile application',
+    'responsive',
+    'freelance',
+  ],
 };
 
 export default function RootLayout({

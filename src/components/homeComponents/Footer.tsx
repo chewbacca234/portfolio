@@ -8,7 +8,7 @@ export function Footer() {
         By Carine Dupuis &copy; {new Date().getFullYear()}
         <Image
           className={styles.miniLogo}
-          src="/images/CD_Fullstack_logo_300.png"
+          src="/images/logo-CDFullstack-300.png"
           alt="CD Fullstack Logo mini"
           width={300}
           height={300}
