@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     'responsive',
     'freelance',
   ],
+  icons: '/images/favicon-CDFullstack.ico',
 };
 
 export default function RootLayout({
