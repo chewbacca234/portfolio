@@ -15,7 +15,7 @@ const navItems: {
   { label: `Contact`, url: `#contact` },
 ];
 
-export function Header() {
+export default function Header() {
   const { theme, setTheme } = useTheme();
   const { screenType } = useWindowSize();
   const scrollPosition = useScrollPosition();
