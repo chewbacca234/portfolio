@@ -29,7 +29,7 @@
       "frontend": ["JavaScript", "ReactNative", "Expo", "Redux"],
       "backend": ["NodeJS", "ExpressJS", "MongoDB", "Cloudinary"]
     },
-    "picture": "/images/projects/geeks-news-mockup.png",
+    "picture": "/images/projects/happyday-mockup.png",
     "links": [
       {
         "url": "/images/projects/happyday-qrcode-android-512.png",
