@@ -9,6 +9,9 @@
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
 
+  --primary-rgb: 65, 10, 102;
+  --secondary-rgb: 28, 130, 223;
+
   --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
   --secondary-glow: radial-gradient(rgb(0, 89, 124), rgb(73, 19, 199));
 
@@ -34,6 +37,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary-rgb: 136, 235, 255;
+  --secondary-rgb: 193, 117, 244;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -110,9 +116,14 @@ html {
   min-height: 2rem;
 }
 
-h2 {
+h2,
+h3 {
   color: rgb(var(--foreground-rgb));
   font-family: var(--font-mono);
+  text-align: center;
+}
+
+h2 {
   font-size: 2rem;
   margin: 4rem 0 2rem;
 }
@@ -129,17 +140,44 @@ h2::before {
   z-index: -1;
 }
 
-/* Antd carousel styles */
+h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  /* margin: 0 0 3rem; */
+}
+
+p {
+  font-size: 0.8rem;
+  color: rgba(var(--foreground-rgb), 0.8);
+}
+
+/* Antd styles */
 .ant-carousel {
-  width: 100%;
-  max-width: 800px;
+  width: 100vw;
 }
 
 .ant-carousel .slick-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 340px;
-  padding: 1rem;
+  width: 100%;
+  min-height: 340px;
   background-color: rgba(var(--foreground-rgb), 0.1);
+}
+
+.ant-carousel .slick-dots li button,
+.ant-carousel .slick-dots li.slick-active button {
+  background-color: rgb(var(--foreground-rgb));
+}
+
+/* All screens sizes exept Small devices (768px and up) */
+@media only screen and (min-width: 768px) {
+  p {
+    font-size: 1rem;
+  }
+
+  .ant-carousel {
+    width: 100%;
+    max-width: 1600px;
+  }
 }

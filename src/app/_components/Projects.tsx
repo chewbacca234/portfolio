@@ -1,23 +1,26 @@
 import { Carousel } from 'antd';
 import styles from './Projects.module.css';
+import projectsData from '../../../public/datas/projects.json';
+import { ProjectSlide } from '@/components';
+
 export function Projects() {
+  const projects = projectsData.map(project => {
+    return (
+      <ProjectSlide
+        key={project.name}
+        name={project.name}
+        description={project.description}
+        techStack={project.teckStack}
+        picture={project.picture}
+        links={project.links}
+      />
+    );
+  });
+
   return (
     <div className={styles.container} id="projects">
       <h2>MyProjects</h2>
-      <Carousel autoplay>
-        <div className={styles.projectContainer}>
-          <h3 className={styles.projectTitle}>Pweeter</h3>
-        </div>
-        <div>
-          <h3 className={styles.projectTitle}>Happy Day!</h3>
-        </div>
-        <div>
-          <h3 className={styles.projectTitle}>Geeks News</h3>
-        </div>
-        <div>
-          <h3 className={styles.projectTitle}>Weather App</h3>
-        </div>
-      </Carousel>
+      <Carousel autoplay>{projects}</Carousel>
     </div>
   );
 }

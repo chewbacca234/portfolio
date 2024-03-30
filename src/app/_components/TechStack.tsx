@@ -1,7 +1,7 @@
 'use client';
 import { CSSProperties, useState } from 'react';
 import styles from './TechStack.module.css';
-import iconSourcesList from '../../../public/datas/techStack.json';
+import techStackData from '../../../public/datas/techStack.json';
 import dynamic from 'next/dynamic';
 // Dynamic import of the ThreeJS component
 const AnimatedIcons = dynamic(
@@ -24,8 +24,8 @@ export function TechStack() {
   }, 200);
 
   const loadingStyle: () => CSSProperties = () => {
-    const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
-    const width: string = `${80 * iconSourcesList.iconSourcesList1.length}`;
+    const height: string = `${80 * Object.keys(techStackData).length}px`;
+    const width: string = `${80 * techStackData.iconSourcesList1.length}`;
     if (isLoading || !timeoutFinished) {
       return { display: 'flex', height, width };
     } else {
@@ -34,8 +34,8 @@ export function TechStack() {
   };
 
   const iconsContainerStyle: () => CSSProperties = () => {
-    const height: string = `${80 * Object.keys(iconSourcesList).length}px`;
-    const width: string = `${80 * iconSourcesList.iconSourcesList1.length}`;
+    const height: string = `${80 * Object.keys(techStackData).length}px`;
+    const width: string = `${80 * techStackData.iconSourcesList1.length}`;
     if (isLoading || !timeoutFinished) {
       return { display: 'none', height, width };
     } else {
@@ -52,13 +52,13 @@ export function TechStack() {
       </div>
       <div style={iconsContainerStyle()} className={styles.container}>
         <AnimatedIcons
-          iconSources={iconSourcesList.iconSourcesList1}
+          iconSources={techStackData.iconSourcesList1}
         ></AnimatedIcons>
         <AnimatedIcons
-          iconSources={iconSourcesList.iconSourcesList2}
+          iconSources={techStackData.iconSourcesList2}
         ></AnimatedIcons>
         <AnimatedIcons
-          iconSources={iconSourcesList.iconSourcesList3}
+          iconSources={techStackData.iconSourcesList3}
           getAnimatedIconsLoadingState={getLoadingState}
         ></AnimatedIcons>
       </div>

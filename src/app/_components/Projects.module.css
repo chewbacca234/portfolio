@@ -15,6 +15,7 @@
   border-image-width: 1px 0 0 0;
   border-image-slice: 1;
   margin-bottom: 6rem;
+  scroll-margin-top: 4rem;
 }
 
 /* .projectContainer {

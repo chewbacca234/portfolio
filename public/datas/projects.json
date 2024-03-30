@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Geeks News",
+    "description": "The Geeks News application is a platform that provides news about the world of technology, with the ability to save articles as favorites and hide specific articles. Explore the latest technology news and customize your reading experience.",
+    "teckStack": {
+      "frontend": ["JavaScript", "React", "NextJS", "Redux"],
+      "backend": ["NodeJS", "ExpressJS", "MongoDB"]
+    },
+    "picture": "/images/projects/geeks-news-mockup.png",
+    "links": [
+      {
+        "url": "https://geeks-news.vercel.app/",
+        "label": "website"
+      },
+      {
+        "url": "https://github.com/chewbacca234/geeks-news_frontend",
+        "label": "github-front"
+      },
+      {
+        "url": "https://github.com/chewbacca234/geeks-news_backend",
+        "label": "github-back"
+      }
+    ]
+  },
+  {
+    "name": "Happy Day!",
+    "description": "This MVP (Minimum Viable Product) is a mobile application to improve your personal happiness. You will be challenged by friends or application notifications and ackts of kindness suggestions to levelup your well-being. Give it a try to see how you can become happier by helping other people and all the community! \rBE HAPPY!",
+    "teckStack": {
+      "frontend": ["JavaScript", "ReactNative", "Expo", "Redux"],
+      "backend": ["NodeJS", "ExpressJS", "MongoDB", "Cloudinary"]
+    },
+    "picture": "/images/projects/geeks-news-mockup.png",
+    "links": [
+      {
+        "url": "/images/projects/happyday-qrcode-android-512.png",
+        "label": "android"
+      },
+      {
+        "url": "/images/projects/happyday-qrcode-android-512.png",
+        "label": "ios"
+      },
+      {
+        "url": "https://github.com/chewbacca234/geeks-news_frontend",
+        "label": "github-front"
+      },
+      {
+        "url": "https://github.com/chewbacca234/geeks-news_backend",
+        "label": "github-back"
+      }
+    ]
+  }
+]
