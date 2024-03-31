@@ -7,8 +7,8 @@ import { useIsVisible } from '@/hooks';
 import { useRef } from 'react';
 
 export function Projects() {
-  const ref: any = useRef();
-  const isVisible = useIsVisible(ref);
+  const [ref, isVisible] = useIsVisible();
+  console.log('isVisible', isVisible);
 
   const projects = projectsData.map(project => {
     return (

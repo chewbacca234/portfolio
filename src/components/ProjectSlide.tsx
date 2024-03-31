@@ -39,12 +39,12 @@ export function ProjectSlide({
       case 'website':
         return (
           <Link
-            key={name}
+            key={linkItem.label}
             className={styles.linkItem}
             href={linkItem.url}
             target="_blank"
           >
-            <FiGlobe size="auto" className={styles.linkIcon} />
+            <FiGlobe className={styles.linkIcon} />
             {linkItem.label}
           </Link>
         );
@@ -53,12 +53,12 @@ export function ProjectSlide({
       case 'github-back':
         return (
           <Link
-            key={name}
+            key={linkItem.label}
             className={styles.linkItem}
             href={linkItem.url}
             target="_blank"
           >
-            <FiGithub size="auto" className={styles.linkIcon} />
+            <FiGithub className={styles.linkIcon} />
             {linkItem.label}
           </Link>
         );
@@ -66,11 +66,11 @@ export function ProjectSlide({
       case 'android':
         return (
           <button
-            key={name}
+            key={linkItem.label}
             className={styles.linkItem}
             onClick={() => handleOpenModal(linkItem.url)}
           >
-            <PiAndroidLogo size="auto" className={styles.linkIcon} />
+            <PiAndroidLogo className={styles.linkIcon} />
             {linkItem.label}
           </button>
         );
@@ -78,11 +78,11 @@ export function ProjectSlide({
       case 'ios':
         return (
           <button
-            key={name}
+            key={linkItem.label}
             className={styles.linkItem}
             onClick={() => handleOpenModal(linkItem.url)}
           >
-            <AiOutlineApple size="auto" className={styles.linkIcon} />
+            <AiOutlineApple className={styles.linkIcon} />
             {linkItem.label}
           </button>
         );
@@ -90,12 +90,12 @@ export function ProjectSlide({
       default:
         return (
           <Link
-            key={name}
+            key={linkItem.label}
             className={styles.linkItem}
             href={linkItem.url}
             target="_blank"
           >
-            <FiLink2 size="auto" className={styles.linkIcon} />
+            <FiLink2 className={styles.linkIcon} />
             {linkItem.label}
           </Link>
         );
@@ -119,10 +119,18 @@ export function ProjectSlide({
         <div className={styles.infos}>
           <div className={styles.itemsContainer}>
             {techStack.frontend.map(stackItemFront => {
-              return <p className={styles.stackItemFront}>{stackItemFront}</p>;
+              return (
+                <p key={stackItemFront} className={styles.stackItemFront}>
+                  {stackItemFront}
+                </p>
+              );
             })}
             {techStack.backend.map(stackItemBack => {
-              return <p className={styles.stackItemBack}>{stackItemBack}</p>;
+              return (
+                <p key={stackItemBack} className={styles.stackItemBack}>
+                  {stackItemBack}
+                </p>
+              );
             })}
           </div>
           <p className={styles.description}>{description}</p>
