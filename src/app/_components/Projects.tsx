@@ -20,7 +20,9 @@ export function Projects() {
   return (
     <div className={styles.container} id="projects">
       <h2>MyProjects</h2>
-      <Carousel autoplay>{projects}</Carousel>
+      <Carousel autoplay infinite>
+        {projects}
+      </Carousel>
     </div>
   );
 }

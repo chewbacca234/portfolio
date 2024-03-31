@@ -29,7 +29,7 @@
       "frontend": ["JavaScript", "ReactNative", "Expo", "Redux"],
       "backend": ["NodeJS", "ExpressJS", "MongoDB", "Cloudinary"]
     },
-    "picture": "/images/projects/happyday-mockup.png",
+    "picture": "/images/projects/happyday-mockup-logo.png",
     "links": [
       {
         "url": "/images/projects/happyday-qrcode-android-512.png",
@@ -46,6 +46,25 @@
       {
         "url": "https://github.com/chewbacca234/geeks-news_backend",
         "label": "github-back"
+      }
+    ]
+  },
+  {
+    "name": "Pwitter",
+    "description": "An instant messages application to connect people. You can add hashtags to your posts and see all the best hashtags and related posts. Full frontend app, all the backend logic (authentication, database, ...) is provided with security by the Firebase's services.",
+    "teckStack": {
+      "frontend": ["JavaScript", "React", "NextJS", "Firebase", "Firestore"],
+      "backend": []
+    },
+    "picture": "/images/projects/happyday-mockup.png",
+    "links": [
+      {
+        "url": "https://pwitter-two.vercel.app/",
+        "label": "website"
+      },
+      {
+        "url": "https://github.com/chewbacca234/pwitter",
+        "label": "github-front"
       }
     ]
   }

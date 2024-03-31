@@ -69,6 +69,7 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+/* Small devices (portrait tablets and phones, 767px and down) */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -124,7 +125,7 @@ h3 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 4rem 0 2rem;
 }
 
@@ -141,7 +142,7 @@ h2::before {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 400;
   /* margin: 0 0 3rem; */
 }
@@ -158,10 +159,9 @@ p {
 
 .ant-carousel .slick-slide {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 340px;
+  height: fit-content;
   background-color: rgba(var(--foreground-rgb), 0.1);
 }
 
@@ -170,14 +170,30 @@ p {
   background-color: rgb(var(--foreground-rgb));
 }
 
-/* All screens sizes exept Small devices (768px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
   p {
     font-size: 1rem;
   }
 
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
   .ant-carousel {
-    width: 100%;
+    width: 70vw;
     max-width: 1600px;
   }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

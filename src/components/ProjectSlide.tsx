@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import styles from './Project.module.css';
+import styles from './ProjectSlide.module.css';
 import Link from 'next/link';
 import { FiGithub, FiGlobe, FiLink2 } from 'react-icons/fi';
 import { AiOutlineApple } from 'react-icons/ai';
