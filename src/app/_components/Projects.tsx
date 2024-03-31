@@ -1,9 +1,15 @@
+'use client';
 import { Carousel } from 'antd';
 import styles from './Projects.module.css';
 import projectsData from '../../../public/datas/projects.json';
 import { ProjectSlide } from '@/components';
+import { useIsVisible } from '@/hooks';
+import { useRef } from 'react';
 
 export function Projects() {
+  const ref: any = useRef();
+  const isVisible = useIsVisible(ref);
+
   const projects = projectsData.map(project => {
     return (
       <ProjectSlide
@@ -18,9 +24,10 @@ export function Projects() {
   });
 
   return (
-    <div className={styles.container} id="projects">
+    <div className={styles.container} id="projects" ref={ref}>
       <h2>MyProjects</h2>
-      <Carousel autoplay infinite>
+
+      <Carousel autoplay={isVisible ? true : false} infinite>
         {projects}
       </Carousel>
     </div>
