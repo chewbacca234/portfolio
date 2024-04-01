@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Teacher Fullstack Web & Mobile React at La Capsule",
+    "desc": "Formations Bootcamp de 10 semaines sur les technos : React, NextJs, React Native, Expo, NodeJs, ExpressJs, MongoDb, ...",
+    "date": "02/2024"
+  },
+  {
+    "title": "Création de CD Fullstack",
+    "desc": "Auto-entreprise de consulting en developpement web et mobile fullstack. Formations d'adultes au techniques de programmations fullstack axées sur React.",
+    "date": "02/2024"
+  },
+  {
+    "title": "Formation Conception & développement d'applications web & mobile par La Capsule",
+    "desc": "Formation bootcamp de 10 semaines au développement web et mobile axée sur les technos : React, React Native, NextJs, NodeJs, ExpressJs, MongoDb, ... Obtention du titre professionel de Developpeur concepteur d'applications web & mobile.",
+    "date": "08/2023"
+  },
+  {
+    "title": "Création de Grafic Art On The Road",
+    "desc": "Auto-entreprise de design graphique. Réalisation d'un site web de vente en ligne 'Designed For Campers' via Shopify. Conception de designs originaux pour stickers, vêtements, accessoires autour de la vie nomade.",
+    "date": "07/2019"
+  }
+]
