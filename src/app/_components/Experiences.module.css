@@ -1,7 +1,7 @@
 .container {
   display: flex;
-  height: 200px;
-  width: 100%;
+  /* height: 200px; */
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -16,4 +16,5 @@
   border-image-width: 1px 0 0 0;
   border-image-slice: 1;
   margin-bottom: 6rem;
+  /* overflow: hidden; */
 }

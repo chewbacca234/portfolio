@@ -29,23 +29,11 @@
       "frontend": ["JavaScript", "ReactNative", "Expo", "Redux"],
       "backend": ["NodeJS", "ExpressJS", "MongoDB", "Cloudinary"]
     },
-    "picture": "/images/projects/happyday-mockup-logo.png",
+    "picture": "/images/projects/happyday-mockup.png",
     "links": [
       {
-        "url": "/images/projects/happyday-qrcode-android-512.png",
-        "label": "android"
-      },
-      {
-        "url": "/images/projects/happyday-qrcode-android-512.png",
-        "label": "ios"
-      },
-      {
-        "url": "https://github.com/chewbacca234/geeks-news_frontend",
-        "label": "github-front"
-      },
-      {
-        "url": "https://github.com/chewbacca234/geeks-news_backend",
-        "label": "github-back"
+        "url": "/images/projects/happyday-qrcode.png",
+        "label": "android | ios"
       }
     ]
   },
@@ -56,7 +44,7 @@
       "frontend": ["JavaScript", "React", "NextJS", "Firebase", "Firestore"],
       "backend": []
     },
-    "picture": "/images/projects/happyday-mockup.png",
+    "picture": "/images/projects/pwitter-mockup.png",
     "links": [
       {
         "url": "https://pwitter-two.vercel.app/",

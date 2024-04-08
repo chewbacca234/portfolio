@@ -87,6 +87,19 @@ export function ProjectSlide({
           </button>
         );
 
+      case 'android | ios':
+        return (
+          <button
+            key={linkItem.label}
+            className={styles.linkItem}
+            onClick={() => handleOpenModal(linkItem.url)}
+          >
+            <PiAndroidLogo className={styles.linkIcon} />
+            <AiOutlineApple className={styles.linkIcon} />
+            {linkItem.label}
+          </button>
+        );
+
       default:
         return (
           <Link
@@ -113,7 +126,7 @@ export function ProjectSlide({
             src={picture}
             alt={`${name} project`}
             width={1600}
-            height={1067}
+            height={1280}
           />
         </div>
         <div className={styles.infos}>
@@ -144,10 +157,10 @@ export function ProjectSlide({
         open={isModalOpen}
         onCancel={handleCloseModal}
         classNames={{
-          content: styles.modal,
+          wrapper: styles.modal,
           body: styles.modalBody,
         }}
-        style={{ maxWidth: '80vw' }}
+        style={{ maxWidth: '80vw', top: '0' }}
       >
         <Image
           src={qrCodeSrc}
@@ -155,6 +168,7 @@ export function ProjectSlide({
           width={512}
           height={512}
         />
+        <p>{`Scan me on Expo Go to view ${name} on your phone.`}</p>
       </Modal>
     </div>
   );
