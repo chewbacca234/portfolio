@@ -11,7 +11,10 @@ import { useIsVisible } from '@/hooks';
 
 export function Experiences() {
   const experiences = experiencesData.map(experience => {
-    const [ref, isVisible] = useIsVisible();
+    const [ref, isVisible] = useIsVisible({
+      freezeOnceVisible: true,
+      rootMargin: '0px 0px -400px',
+    });
 
     return (
       <VerticalTimelineElement
