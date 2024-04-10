@@ -21,8 +21,6 @@ export function Experiences() {
         key={experience.title}
         date={experience.date}
         visible={isVisible}
-        // intersectionObserverProps={{ rootMargin: '0px 0px -200px 0px' }}
-        // className="vertical-timeline-element--work"
         contentStyle={{
           background: 'rgb(var(--primary-rgb))',
           color: 'rgb(var(--foreground-rgb))',

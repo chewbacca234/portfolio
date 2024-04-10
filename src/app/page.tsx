@@ -5,7 +5,7 @@ import {
   Experiences,
   Presentation,
   Projects,
-  Skills,
+  SoftSkills,
 } from '@/app/_components';
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
       <Presentation />
       <Projects />
       <Experiences />
-      <Skills />
+      <SoftSkills />
       <Contact />
 
       {/* <div className={styles.grid}>
