@@ -61,6 +61,7 @@ export function Experiences() {
           {experience.title}
         </h3>
         <p>{experience.desc} </p>
+        <p className={styles.info}>{experience.info} </p>
       </VerticalTimelineElement>
     );
   });

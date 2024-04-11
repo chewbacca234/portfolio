@@ -1,4 +1,4 @@
-import { LegacyRef, ReactNode, forwardRef } from 'react';
+import { LegacyRef, ReactNode } from 'react';
 import styles from './SectionContainer.module.css';
 
 type Props = {

@@ -2,24 +2,28 @@
   {
     "title": "Teacher Fullstack Web & Mobile React at La Capsule",
     "desc": "Formations Bootcamp de 10 semaines sur les technos : React, NextJs, React Native, Expo, NodeJs, ExpressJs, MongoDb, ...",
+    "info": "Formation basée sur le Project learning, les étudiants finissent leur formation avec les projets réalisés en poche dont un projet de fin de batch from scratch avec gestion de la conception et des sprints de développement (méthode agile). Il obtiennent également un titre professionel de niveau 6.",
     "date": "02/2024",
     "icon": "teacher"
   },
   {
     "title": "Création de CD Fullstack",
-    "desc": "Société de consulting en developpement web et mobile fullstack. Conception et développement d'applications web & mobile. Formations d'adultes au techniques de programmations fullstack axées sur React.",
+    "desc": "Société de consulting en developpement web et mobile fullstack.",
+    "info": "Conception et développement d'applications web & mobile. Formations d'adultes aux techniques de programmation fullstack axées sur JavaScript,HTML/CSS et React pour le frontend, et NodeJS/ExpreesJS côté backend.",
     "date": "02/2024",
     "icon": "dev"
   },
   {
     "title": "Formation Conception & développement d'applications web & mobile par La Capsule",
-    "desc": "Formation bootcamp de 10 semaines au développement web et mobile axée sur les technos : React, React Native, NextJs, NodeJs, ExpressJs, MongoDb, ... Obtention du titre professionel de Developpeur concepteur d'applications web & mobile.",
+    "desc": "Formation bootcamp de 10 semaines au développement web et mobile axée sur les technos : React, React Native, NextJs, NodeJs, ExpressJs, MongoDb, ...",
+    "info": "Obtention du titre professionel de Concepteur développeur d'applications web & mobile.",
     "date": "08/2023",
     "icon": "school"
   },
   {
     "title": "Création de Grafic Art On The Road",
-    "desc": "Société de design graphique. Réalisation d'un site web de vente en ligne \"Designed For Campers\" via Shopify. Conception de designs originaux pour stickers, vêtements, accessoires autour de la vie nomade.",
+    "desc": "Société de design graphique.",
+    "info": "Réalisation d'un site web de vente en ligne \"Designed For Campers\" via Shopify. Conception de designs originaux pour stickers, vêtements, accessoires autour de la vie nomade.",
     "date": "07/2019",
     "icon": "t-shirt"
   }
