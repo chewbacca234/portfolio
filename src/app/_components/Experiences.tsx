@@ -8,13 +8,25 @@ import 'react-vertical-timeline-component/style.min.css';
 import experiencesData from '../../../public/datas/experiences.json';
 import { FiBriefcase, FiRotateCcw } from 'react-icons/fi';
 import { useIsVisible } from '@/hooks';
+import { GiTShirt, GiTeacher } from 'react-icons/gi';
+import { IoSchool } from 'react-icons/io5';
+import { BsFileEarmarkCode, BsFileEarmarkCodeFill } from 'react-icons/bs';
 
 export function Experiences() {
-  const experiences = experiencesData.map(experience => {
+  const experiences = experiencesData.map((experience, i) => {
     const [ref, isVisible] = useIsVisible({
       freezeOnceVisible: true,
       rootMargin: '0px 0px -400px',
     });
+
+    let icon = <BsFileEarmarkCodeFill />;
+    if (experience.icon === 't-shirt') {
+      icon = <GiTShirt />;
+    } else if (experience.icon === 'school') {
+      icon = <IoSchool />;
+    } else if (experience.icon === 'teacher') {
+      icon = <GiTeacher />;
+    }
 
     return (
       <VerticalTimelineElement
@@ -22,15 +34,25 @@ export function Experiences() {
         date={experience.date}
         visible={isVisible}
         contentStyle={{
-          background: 'rgb(var(--primary-rgb))',
+          background:
+            i % 2 === 0
+              ? 'rgb(var(--primary-rgb))'
+              : 'rgb(var(--secondary-rgb))',
           color: 'rgb(var(--foreground-rgb))',
+          borderRadius: 'var(--border-radius)',
         }}
         contentArrowStyle={{
-          borderRight: '7px solid  rgb(var(--primary-rgb))',
+          borderRight:
+            i % 2 === 0
+              ? '7px solid  rgb(var(--primary-rgb))'
+              : '7px solid  rgb(var(--secondary-rgb))',
         }}
-        icon={<FiBriefcase />}
+        icon={icon}
         iconStyle={{
-          background: 'rgb(var(--secondary-rgb))',
+          background:
+            i % 2 === 0
+              ? 'rgb(var(--primary-rgb))'
+              : 'rgb(var(--secondary-rgb))',
           color: 'rgb(var(--foreground-rgb))',
           boxShadow: '0 0 0 4px rgb(var(--foreground-rgb))',
         }}

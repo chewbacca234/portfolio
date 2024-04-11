@@ -51,6 +51,7 @@ export function ProjectSlide({
 
       case 'github-front':
       case 'github-back':
+      case 'github':
         return (
           <Link
             key={linkItem.label}
