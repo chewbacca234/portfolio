@@ -6,22 +6,14 @@ export function TypeWriter() {
     <TypewriterComponent
       onInit={typewriter => {
         typewriter
-          .typeString('My skills')
+          .typeString('If you have a question')
           .pauseFor(300)
           .deleteChars(8)
-          .typeString('Y SKILLS : team work')
+          .typeString('project')
           .pauseFor(400)
-          .deleteChars(9)
-          .typeString('debug')
+          .deleteChars(14)
+          .typeString('need to contact me...')
           .pauseFor(400)
-          .deleteChars(5)
-          .typeString('learning')
-          .pauseFor(400)
-          .deleteChars(8)
-          .typeString('teaching')
-          .pauseFor(400)
-          .deleteChars(8)
-          .typeString('motivation')
           .deleteAll()
           .start();
       }}

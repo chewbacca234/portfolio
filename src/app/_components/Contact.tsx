@@ -1,11 +1,13 @@
 import styles from './Contact.module.css';
-import { TypeWriter } from '@/components';
+import { SectionContainer, TypeWriter } from '@/components';
 
 export function Contact() {
   return (
-    <div className={styles.container} id="contact">
-      <h2>CONTACT</h2>
+    <SectionContainer title="Contact" id="contact">
       <TypeWriter />
-    </div>
+      <p>Contact form</p>
+      <p>+33 641 099 465</p>
+      <p>carine.dupuis.es@gmail.com</p>
+    </SectionContainer>
   );
 }

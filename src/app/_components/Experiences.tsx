@@ -11,9 +11,10 @@ import { useIsVisible } from '@/hooks';
 import { GiTShirt, GiTeacher } from 'react-icons/gi';
 import { IoSchool } from 'react-icons/io5';
 import { BsFileEarmarkCode, BsFileEarmarkCodeFill } from 'react-icons/bs';
+import { SectionContainer } from '@/components';
 
 export function Experiences() {
-  const experiences = experiencesData.map((experience, i) => {
+  const experiences = experiencesData.map((experience, index) => {
     const [ref, isVisible] = useIsVisible({
       freezeOnceVisible: true,
       rootMargin: '0px 0px -400px',
@@ -28,31 +29,30 @@ export function Experiences() {
       icon = <GiTeacher />;
     }
 
+    const indexIsEven = index % 2 === 0;
+
     return (
       <VerticalTimelineElement
         key={experience.title}
         date={experience.date}
         visible={isVisible}
         contentStyle={{
-          background:
-            i % 2 === 0
-              ? 'rgb(var(--primary-rgb))'
-              : 'rgb(var(--secondary-rgb))',
+          background: indexIsEven
+            ? 'rgb(var(--primary-rgb))'
+            : 'rgb(var(--secondary-rgb))',
           color: 'rgb(var(--foreground-rgb))',
           borderRadius: 'var(--border-radius)',
         }}
         contentArrowStyle={{
-          borderRight:
-            i % 2 === 0
-              ? '7px solid  rgb(var(--primary-rgb))'
-              : '7px solid  rgb(var(--secondary-rgb))',
+          borderRight: indexIsEven
+            ? '7px solid  rgb(var(--primary-rgb))'
+            : '7px solid  rgb(var(--secondary-rgb))',
         }}
         icon={icon}
         iconStyle={{
-          background:
-            i % 2 === 0
-              ? 'rgb(var(--primary-rgb))'
-              : 'rgb(var(--secondary-rgb))',
+          background: indexIsEven
+            ? 'rgb(var(--primary-rgb))'
+            : 'rgb(var(--secondary-rgb))',
           color: 'rgb(var(--foreground-rgb))',
           boxShadow: '0 0 0 4px rgb(var(--foreground-rgb))',
         }}
@@ -66,20 +66,19 @@ export function Experiences() {
   });
 
   return (
-    <div className={styles.container} id="experiences">
-      <h2>MyExperiences</h2>
+    <SectionContainer title="MyExperiences" id="experiences">
       <VerticalTimeline lineColor="rgb(var(--foreground-rgb))">
         {experiences}
         <VerticalTimelineElement
           visible
           icon={<FiRotateCcw />}
           iconStyle={{
-            background: 'rgb(var(--secondary-rgb))',
+            background: 'rgb(var(--primary-rgb))',
             color: 'rgb(var(--foreground-rgb))',
             boxShadow: '0 0 0 4px rgb(var(--foreground-rgb))',
           }}
         ></VerticalTimelineElement>
       </VerticalTimeline>
-    </div>
+    </SectionContainer>
   );
 }

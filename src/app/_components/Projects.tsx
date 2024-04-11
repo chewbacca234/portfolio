@@ -2,7 +2,7 @@
 import { Carousel } from 'antd';
 import styles from './Projects.module.css';
 import projectsData from '../../../public/datas/projects.json';
-import { ProjectSlide } from '@/components';
+import { ProjectSlide, SectionContainer } from '@/components';
 import { useIsVisible } from '@/hooks';
 import { useRef } from 'react';
 
@@ -24,12 +24,10 @@ export function Projects() {
   });
 
   return (
-    <div className={styles.container} id="projects" ref={ref}>
-      <h2>MyProjects</h2>
-
+    <SectionContainer title="MyProjects" id="projects" reference={ref}>
       <Carousel autoplay={isVisible ? true : false} infinite>
         {projects}
       </Carousel>
-    </div>
+    </SectionContainer>
   );
 }

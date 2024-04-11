@@ -9,9 +9,10 @@ const navItems: {
   label: string;
   url: string;
 }[] = [
+  { label: `Tech Stack`, url: `#stack` },
   { label: `Projects`, url: `#projects` },
   { label: `Experiences`, url: `#experiences` },
-  { label: `Skills`, url: `#skills` },
+  { label: `Soft Skills`, url: `#skills` },
   { label: `Contact`, url: `#contact` },
 ];
 

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-width: 3px;
+  border-style: solid;
+  border-image-source: linear-gradient(
+    to right,
+    transparent,
+    rgb(var(--foreground-rgb)),
+    transparent
+  );
+  border-image-width: 1px 0 0 0;
+  border-image-slice: 1;
+  margin-bottom: 6rem;
+  scroll-margin-top: 2rem;
+}

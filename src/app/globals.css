@@ -131,7 +131,8 @@ h2 {
 
 h2::before {
   background: var(--primary-glow);
-  width: 50%;
+  width: 25%;
+  min-width: 250px;
   height: 80px;
   content: '';
   left: 50%;
