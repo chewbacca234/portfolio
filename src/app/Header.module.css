@@ -73,8 +73,8 @@
   min-width: 2rem;
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+/* Medium devices (landscape tablets, 960px and up) */
+@media only screen and (min-width: 960px) {
   .header {
     position: absolute;
     padding: 3rem 2%;
@@ -100,8 +100,8 @@
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+/* Large devices (laptops/desktops, 1024px and up) */
+@media only screen and (min-width: 1024px) {
   .header {
     /* position: absolute;
     font-size: 0.85rem; */

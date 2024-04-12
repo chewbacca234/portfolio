@@ -4,12 +4,14 @@ import Link from 'next/link';
 import { FiMenu, FiMoon, FiSun } from 'react-icons/fi';
 import { useTheme } from 'next-themes';
 import { useScrollPosition, useWindowSize } from '@/hooks';
+import { useState } from 'react';
+import { HeaderMenu } from '@/components';
 
 const navItems: {
   label: string;
   url: string;
 }[] = [
-  { label: `Tech Stack`, url: `#stack` },
+  { label: `Tech Stack`, url: `#presentation` },
   { label: `Projects`, url: `#projects` },
   { label: `Experiences`, url: `#experiences` },
   { label: `Soft Skills`, url: `#skills` },
@@ -18,51 +20,64 @@ const navItems: {
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
-  const { screenType } = useWindowSize();
+  const { windowSize } = useWindowSize();
   const scrollPosition = useScrollPosition();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // console.log('theme:', theme);
   // console.log('Window Size:', windowSize);
   // console.log('Scroll Position:', scrollPosition);
 
-  let containerStyle: string;
-  if (screenType === 'XL-screens') {
-    // Extra Large screens styles
-    if (scrollPosition < 60) {
-      containerStyle = styles.header;
-    } else {
-      containerStyle = styles.sticky;
-    }
-  } else if (screenType === 'L-screens' || 'M-screens') {
+  let containerStyle: string = styles.header;
+  if (windowSize.innerWidth >= 960) {
     // Large screens styles
     if (scrollPosition < 48) {
       containerStyle = styles.header;
     } else {
       containerStyle = styles.sticky;
     }
-  } else {
-    // Smaller screens & mobile styles
-    containerStyle = styles.header;
+  } else if (windowSize.innerWidth >= 1024) {
+    // Extra Large screens styles
+    if (scrollPosition < 60) {
+      containerStyle = styles.header;
+    } else {
+      containerStyle = styles.sticky;
+    }
   }
+
+  const showMenu = () => {
+    setMenuOpen(true);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header className={containerStyle}>
       <div className={styles.mainContent}>
         <h1 className={styles.title}>CD Fullstack | Carine Dupuis</h1>
         <nav className={styles.nav}>
-          {screenType !== 'S-screens' ? (
+          {windowSize.innerWidth >= 960 ? (
             navItems.map(({ label, url }) => (
               <Link key={label} className="button" type="button" href={url}>
                 {label}
               </Link>
             ))
           ) : (
-            <FiMenu
-              size="1.5rem"
-              onClick={() => null}
-              cursor="pointer"
-              className={styles.menu}
-            />
+            <>
+              <FiMenu
+                size="1.5rem"
+                onClick={showMenu}
+                cursor="pointer"
+                className={styles.menu}
+              />
+              <HeaderMenu
+                onClose={closeMenu}
+                open={menuOpen}
+                navItems={navItems}
+              />
+            </>
           )}
         </nav>
       </div>
