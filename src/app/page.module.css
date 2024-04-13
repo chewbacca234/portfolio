@@ -102,7 +102,17 @@
   } */
 
   .logo {
+    -webkit-filter: drop-shadow(0 0 0.3rem #ffffff70);
     filter: drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 
@@ -132,14 +142,25 @@
 
 .animatedIconSkeletonContainer {
   display: flex;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
 /* Parallax styles */
 .backgroundParallax {
+  -webkit-animation: parallaxEffect linear;
   animation: parallaxEffect linear;
   animation-timeline: scroll(y);
+}
+
+@-webkit-keyframes parallaxEffect {
+  to {
+    translate: 0 1000px;
+  }
 }
 
 @keyframes parallaxEffect {

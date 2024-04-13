@@ -20,6 +20,7 @@
     rgba(var(--callout-rgb), 0.5)
   );
   background-clip: padding-box;
+  -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
 
@@ -52,6 +53,8 @@
 
 .nav {
   display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   align-items: center;
   gap: 0.5rem;
@@ -81,6 +84,7 @@
     font-size: 0.85rem;
     background: none;
     border: none;
+    -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 

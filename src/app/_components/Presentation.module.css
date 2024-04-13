@@ -25,6 +25,7 @@
   height: 220px;
   content: '';
   position: absolute;
+  -webkit-filter: blur(45px);
   filter: blur(45px);
 }
 
@@ -41,11 +42,14 @@
   height: 100%;
   text-align: center;
   transform-style: preserve-3d;
+  -webkit-animation: flip 4s infinite;
   animation: flip 4s infinite;
+  -webkit-animation-delay: 2s;
   animation-delay: 2s;
 }
 
 .flipCardInner:hover {
+  -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
 
@@ -74,6 +78,24 @@
   min-width: 100px;
 
   /* margin-top: -8vh; */
+}
+
+@-webkit-keyframes flip {
+  0% {
+    transform: rotateY(360deg);
+  }
+  25% {
+    transform: rotateY(360deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
 }
 
 @keyframes flip {

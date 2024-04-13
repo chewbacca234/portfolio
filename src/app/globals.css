@@ -138,6 +138,7 @@ h2::before {
   left: 50%;
   translate: -50% -40%;
   position: absolute;
+  -webkit-filter: blur(45px);
   filter: blur(45px);
   z-index: -1;
 }
@@ -162,6 +163,8 @@ p {
   display: flex;
   align-items: center;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   background-color: rgba(var(--foreground-rgb), 0.1);
 }
