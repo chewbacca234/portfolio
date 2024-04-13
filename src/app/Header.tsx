@@ -60,7 +60,13 @@ export default function Header() {
         <nav className={styles.nav}>
           {windowSize.innerWidth >= 960 ? (
             navItems.map(({ label, url }) => (
-              <Link key={label} className="button" type="button" href={url}>
+              <Link
+                key={label}
+                className="button"
+                type="button"
+                href={url}
+                scroll={true}
+              >
                 {label}
               </Link>
             ))

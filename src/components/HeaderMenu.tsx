@@ -48,6 +48,7 @@ export function HeaderMenu({ onClose, open, navItems }: Props) {
           type="button"
           href={url}
           onClick={onClose}
+          scroll={true}
         >
           {label}
         </Link>
