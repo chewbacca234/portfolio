@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 // Dynamic import of the ThreeJS component
 const AnimatedIcons = dynamic(
   () => {
-    return import('@/components');
+    return import('@/threeJs');
   },
   { ssr: false }
 );

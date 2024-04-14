@@ -1,0 +1,171 @@
+'use client';
+import { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+import softSkillsData from '../../public/datas/softSkills.json';
+import { useTheme } from 'next-themes';
+
+export function SkillsBubbles() {
+  const refContainer = useRef<HTMLDivElement>(null);
+  const currentTheme = useTheme();
+
+  let skills = softSkillsData.lightSkillsImg;
+  // useEffect(() => {
+  //   if (currentTheme.theme === 'dark') {
+  //     skills = softSkillsData.darkSkillsImg;
+  //   }
+  // }, [currentTheme.theme]);
+
+  let camera: THREE.PerspectiveCamera,
+    scene: THREE.Scene,
+    renderer: THREE.WebGLRenderer;
+
+  let sceneHeight: number = (window.innerHeight * 70) / 100;
+  let sceneWidth: number = window.innerWidth;
+
+  let sceneHalfX: number = sceneWidth / 2;
+  let sceneHalfY: number = sceneHeight / 2;
+
+  const spheres: THREE.Mesh[] = [];
+
+  // Initialize 3D scene
+  function init(): void {
+    if (currentTheme.theme === 'dark') {
+      skills = softSkillsData.darkSkillsImg;
+    }
+
+    renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+    });
+
+    camera = new THREE.PerspectiveCamera(
+      40,
+      sceneWidth / sceneHeight,
+      100,
+      100000
+    );
+    camera.position.z = 3200;
+
+    scene = new THREE.Scene();
+    scene.background = null;
+
+    // Lights
+    const directionalLight: THREE.DirectionalLight = new THREE.DirectionalLight(
+      0xffffff,
+      3.5
+    );
+    directionalLight.position.set(0, 0, 1000); // Position the light
+    scene.add(directionalLight);
+
+    const ambientLight: THREE.AmbientLight = new THREE.AmbientLight(
+      0x7c7c7c,
+      1.5
+    );
+    scene.add(ambientLight);
+
+    // Create sphere geometry
+    const geometry = new THREE.SphereGeometry(200, 64, 32);
+
+    skills.forEach(skill => {
+      // TEXTURE MAP
+      const texture: THREE.Texture = new THREE.TextureLoader().load(
+        skill,
+        texture => {
+          texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+          texture.colorSpace = THREE.SRGBColorSpace;
+          texture.colorSpace = THREE.SRGBColorSpace;
+          texture.offset.set(0.25, 0);
+          // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+        }
+      );
+
+      // Create bubble material
+      const material: THREE.MeshPhongMaterial = new THREE.MeshPhongMaterial({
+        color: 0xffffff,
+        map: texture,
+        // transparent: true,
+        // alphaMap: texture,
+      });
+      material.needsUpdate = true;
+
+      // Create the bubbles 3D objects
+      for (let i = 0; i < 10; i++) {
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = Math.random() * 10000 - 5000;
+        mesh.position.y = Math.random() * 10000 - 5000;
+        mesh.position.z = Math.random() * 10000 - 10000;
+        mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
+        mesh.receiveShadow = true;
+
+        scene.add(mesh);
+
+        spheres.push(mesh);
+      }
+    });
+
+    //
+
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(sceneWidth, sceneHeight);
+    refContainer.current?.replaceChildren(renderer.domElement);
+
+    //
+
+    window.addEventListener('resize', onWindowResize);
+  }
+
+  // Update scene on window resize
+  function onWindowResize(): void {
+    sceneHeight = (window.innerHeight * 70) / 100;
+    sceneWidth = window.innerWidth;
+
+    sceneHalfX = sceneWidth / 2;
+    sceneHalfY = sceneHeight / 2;
+
+    camera.aspect = sceneWidth / sceneHeight;
+    renderer.setSize(sceneWidth, sceneHeight);
+
+    camera.updateProjectionMatrix();
+  }
+
+  // Animation loop
+  function animate(): void {
+    requestAnimationFrame(animate);
+
+    const timer = 0.0001 * Date.now();
+
+    camera.lookAt(scene.position);
+
+    for (let i = 0, il = spheres.length; i < il; i++) {
+      const sphere = spheres[i];
+
+      sphere.position.x = 5000 * Math.cos(timer + i);
+      sphere.position.y = 5000 * Math.sin(timer + i * 1.1);
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  useEffect(() => {
+    init();
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', onWindowResize);
+
+      renderer.dispose();
+    };
+  }, [currentTheme.theme]);
+
+  return (
+    <div
+      style={{
+        backgroundColor: 'transparent',
+        zIndex: -10,
+        width: '100vw',
+        height: '70vh',
+      }}
+      ref={refContainer}
+    ></div>
+  );
+}
