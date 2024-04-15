@@ -1,23 +1,19 @@
 {
   "lightSkillsImg": [
-    "/images/softSkills/soft-skill-curious-v7.jpg",
-    "/images/softSkills/soft-skill-curious-v6.jpg",
-    "/images/softSkills/soft-skill-curious-v7.jpg",
-    "/images/softSkills/soft-skill-curious-v6.jpg",
-    "/images/softSkills/soft-skill-curious-v7.jpg",
-    "/images/softSkills/soft-skill-curious-v6.jpg",
-    "/images/softSkills/soft-skill-curious-v7.jpg",
-    "/images/softSkills/soft-skill-curious-v6.jpg"
+    "/images/softSkills/soft-skill-pedagogy-light.jpg",
+    "/images/softSkills/soft-skill-curiousity-light.jpg",
+    "/images/softSkills/soft-skill-teamwork-light.jpg",
+    "/images/softSkills/soft-skill-easylearning-light.jpg",
+    "/images/softSkills/soft-skill-debug-light.jpg",
+    "/images/softSkills/soft-skill-patience-light.jpg"
   ],
 
   "darkSkillsImg": [
-    "/images/softSkills/soft-skill-curious-v5.jpg",
-    "/images/softSkills/soft-skill-curious-v4.jpg",
-    "/images/softSkills/soft-skill-curious-v5.jpg",
-    "/images/softSkills/soft-skill-curious-v4.jpg",
-    "/images/softSkills/soft-skill-curious-v5.jpg",
-    "/images/softSkills/soft-skill-curious-v4.jpg",
-    "/images/softSkills/soft-skill-curious-v5.jpg",
-    "/images/softSkills/soft-skill-curious-v4.jpg"
+    "/images/softSkills/soft-skill-pedagogy-dark.jpg",
+    "/images/softSkills/soft-skill-curiousity-dark.jpg",
+    "/images/softSkills/soft-skill-teamwork-dark.jpg",
+    "/images/softSkills/soft-skill-easylearning-dark.jpg",
+    "/images/softSkills/soft-skill-debug-dark.jpg",
+    "/images/softSkills/soft-skill-patience-dark.jpg"
   ]
 }
