@@ -1,6 +1,7 @@
+/* Small devices (portrait tablets and phones, 767px and down) */
 .container {
   display: flex;
-  width: 100%;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -16,4 +17,13 @@
   border-image-slice: 1;
   margin-bottom: 6rem;
   scroll-margin-top: 2rem;
+  padding-inline: 1rem;
+}
+
+/* Medium devices (landscape tablets, 960px and up) */
+@media only screen and (min-width: 960px) {
+  .container {
+    width: 100%;
+    padding-inline: 0;
+  }
 }
