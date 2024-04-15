@@ -49,6 +49,25 @@
   text-wrap: balance;
 }
 
+/* Parallax styles */
+.backgroundParallax {
+  -webkit-animation: parallaxEffect linear;
+  animation: parallaxEffect linear;
+  animation-timeline: scroll(y);
+}
+
+@-webkit-keyframes parallaxEffect {
+  to {
+    translate: 0 2000px;
+  }
+}
+
+@keyframes parallaxEffect {
+  to {
+    translate: 0 2000px;
+  }
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -86,6 +105,18 @@
 
   .card h2 {
     margin-bottom: 0.5rem;
+  }
+
+  @-webkit-keyframes parallaxEffect {
+    to {
+      translate: 0 4000px;
+    }
+  }
+
+  @keyframes parallaxEffect {
+    to {
+      translate: 0 4000px;
+    }
   }
 }
 
@@ -148,23 +179,4 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-/* Parallax styles */
-.backgroundParallax {
-  -webkit-animation: parallaxEffect linear;
-  animation: parallaxEffect linear;
-  animation-timeline: scroll(y);
-}
-
-@-webkit-keyframes parallaxEffect {
-  to {
-    translate: 0 1000px;
-  }
-}
-
-@keyframes parallaxEffect {
-  to {
-    translate: 0 1000px;
-  }
 }
