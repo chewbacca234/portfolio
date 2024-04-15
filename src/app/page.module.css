@@ -68,6 +68,25 @@
   }
 }
 
+/* Parallax styles */
+.backgroundParallax {
+  -webkit-animation: parallaxEffect linear;
+  animation: parallaxEffect linear;
+  animation-timeline: scroll(y);
+}
+
+@-webkit-keyframes parallaxEffect {
+  to {
+    translate: 0 2000px;
+  }
+}
+
+@keyframes parallaxEffect {
+  to {
+    translate: 0 2000px;
+  }
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
