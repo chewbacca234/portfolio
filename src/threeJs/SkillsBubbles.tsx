@@ -3,10 +3,12 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import softSkillsData from '../../public/datas/softSkills.json';
 import { useTheme } from 'next-themes';
+import { useWindowSize } from '@/hooks';
 
 export function SkillsBubbles() {
   const refContainer = useRef<HTMLDivElement>(null);
   const currentTheme = useTheme();
+  const { windowSize } = useWindowSize();
 
   let skills = softSkillsData.lightSkillsImg;
   // useEffect(() => {
@@ -19,11 +21,14 @@ export function SkillsBubbles() {
     scene: THREE.Scene,
     renderer: THREE.WebGLRenderer;
 
-  let sceneHeight: number = (window.innerHeight * 70) / 100;
-  let sceneWidth: number = window.innerWidth;
+  let sceneHeight: number = (windowSize.innerHeight * 70) / 100;
+  let sceneWidth: number = windowSize.innerWidth;
 
   let sceneHalfX: number = sceneWidth / 2;
   let sceneHalfY: number = sceneHeight / 2;
+
+  const bubbleContainerWidth = sceneWidth * 9;
+  const bubbleContainerHeight = sceneHeight * 5;
 
   const spheres: THREE.Mesh[] = [];
 
@@ -75,7 +80,6 @@ export function SkillsBubbles() {
           texture.colorSpace = THREE.SRGBColorSpace;
           texture.colorSpace = THREE.SRGBColorSpace;
           texture.offset.set(0.25, 0);
-          // texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
         }
       );
 
@@ -83,18 +87,18 @@ export function SkillsBubbles() {
       const material: THREE.MeshPhongMaterial = new THREE.MeshPhongMaterial({
         color: 0xffffff,
         map: texture,
-        // transparent: true,
-        // alphaMap: texture,
       });
       material.needsUpdate = true;
 
       // Create the bubbles 3D objects
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 4; i++) {
         const mesh = new THREE.Mesh(geometry, material);
-        mesh.position.x = Math.random() * 10000 - 5000;
-        mesh.position.y = Math.random() * 10000 - 5000;
+        mesh.position.x =
+          Math.random() * bubbleContainerWidth - bubbleContainerWidth / 2;
+        mesh.position.y =
+          Math.random() * bubbleContainerHeight - bubbleContainerWidth / 2;
         mesh.position.z = Math.random() * 10000 - 10000;
-        mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
+        mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 2 + 1;
         mesh.receiveShadow = true;
 
         scene.add(mesh);
@@ -111,22 +115,22 @@ export function SkillsBubbles() {
 
     //
 
-    window.addEventListener('resize', onWindowResize);
+    // window.addEventListener('resize', onWindowResize);
   }
 
-  // Update scene on window resize
-  function onWindowResize(): void {
-    sceneHeight = (window.innerHeight * 70) / 100;
-    sceneWidth = window.innerWidth;
+  // // Update scene on window resize
+  // function onWindowResize(): void {
+  //   sceneHeight = (window.innerHeight * 70) / 100;
+  //   sceneWidth = window.innerWidth;
 
-    sceneHalfX = sceneWidth / 2;
-    sceneHalfY = sceneHeight / 2;
+  //   sceneHalfX = sceneWidth / 2;
+  //   sceneHalfY = sceneHeight / 2;
 
-    camera.aspect = sceneWidth / sceneHeight;
-    renderer.setSize(sceneWidth, sceneHeight);
+  //   camera.aspect = sceneWidth / sceneHeight;
+  //   renderer.setSize(sceneWidth, sceneHeight);
 
-    camera.updateProjectionMatrix();
-  }
+  //   camera.updateProjectionMatrix();
+  // }
 
   // Animation loop
   function animate(): void {
@@ -139,8 +143,15 @@ export function SkillsBubbles() {
     for (let i = 0, il = spheres.length; i < il; i++) {
       const sphere = spheres[i];
 
-      sphere.position.x = 5000 * Math.cos(timer + i);
-      sphere.position.y = 5000 * Math.sin(timer + i * 1.1);
+      if (i % 2 === 0) {
+        sphere.position.x = (bubbleContainerWidth / 2) * Math.cos(timer + i);
+        sphere.position.y =
+          (bubbleContainerHeight / 2) * Math.sin(timer + i * 1.1);
+      } else {
+        sphere.position.x = (bubbleContainerWidth / 2) * Math.sin(timer + i);
+        sphere.position.y =
+          (bubbleContainerHeight / 2) * Math.cos(timer + i * 1.1);
+      }
     }
 
     renderer.render(scene, camera);
@@ -151,11 +162,11 @@ export function SkillsBubbles() {
     animate();
 
     return () => {
-      window.removeEventListener('resize', onWindowResize);
+      // window.removeEventListener('resize', onWindowResize);
 
       renderer.dispose();
     };
-  }, [currentTheme.theme]);
+  }, [currentTheme.theme, windowSize]);
 
   return (
     <div
