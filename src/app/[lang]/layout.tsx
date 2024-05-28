@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import Header from './Header';
-import Footer from './Footer';
+import '../globals.css';
+import Header from '../Header';
+import Footer from '../Footer';
 import { DarkModeProvider } from '@/providers';
+import { getDictionary } from './dictionaries.js';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -28,18 +29,23 @@ export const metadata: Metadata = {
   icons: '/images/favicon-CDFullstack.ico',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
+  params: { [lang: string]: string };
 }>) {
+  // console.log('lang:', lang);
+  const dict = await getDictionary(lang);
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={inter.className}>
         <DarkModeProvider>
-          <Header />
+          <Header dict={dict} />
           {children}
-          <Footer />
+          <Footer dict={dict} />
         </DarkModeProvider>
       </body>
     </html>

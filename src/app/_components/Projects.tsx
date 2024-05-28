@@ -6,7 +6,7 @@ import { ProjectSlide, SectionContainer } from '@/components';
 import { useIsVisible } from '@/hooks';
 import { useRef } from 'react';
 
-export function Projects() {
+export function Projects({ dict }: { dict: any }) {
   const [ref, isVisible] = useIsVisible();
   console.log('isVisible', isVisible);
 
@@ -24,7 +24,7 @@ export function Projects() {
   });
 
   return (
-    <SectionContainer title="MyProjects" id="projects" reference={ref}>
+    <SectionContainer title={dict.myProjects} id="projects" reference={ref}>
       <Carousel autoplay={isVisible ? true : false} infinite>
         {projects}
       </Carousel>

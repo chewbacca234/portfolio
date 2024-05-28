@@ -6,23 +6,26 @@ import { useTheme } from 'next-themes';
 import { useScrollPosition, useWindowSize } from '@/hooks';
 import { useState } from 'react';
 import { HeaderMenu } from '@/components';
+import { LuLanguages } from 'react-icons/lu';
+import { Modal } from 'antd';
 
-const navItems: {
-  label: string;
-  url: string;
-}[] = [
-  { label: `Tech Stack`, url: `#presentation` },
-  { label: `Projects`, url: `#projects` },
-  { label: `Experiences`, url: `#experiences` },
-  { label: `Soft Skills`, url: `#skills` },
-  { label: `Contact`, url: `#contact` },
-];
-
-export default function Header() {
+export default function Header({ dict }: { dict: any }) {
   const { theme, setTheme } = useTheme();
   const { windowSize } = useWindowSize();
   const scrollPosition = useScrollPosition();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+
+  const navItems: {
+    label: string;
+    url: string;
+  }[] = [
+    { label: dict.techStack, url: `#presentation` },
+    { label: dict.projects, url: `#projects` },
+    { label: dict.experiences, url: `#experiences` },
+    { label: dict.softSkills, url: `#skills` },
+    { label: dict.contact, url: `#contact` },
+  ];
 
   // console.log('theme:', theme);
   // console.log('Window Size:', windowSize);
@@ -104,6 +107,51 @@ export default function Header() {
           title="Switch to dark mode"
         />
       )}
+      <LuLanguages
+        size="1.5rem"
+        onClick={() => setIsLangOpen(true)}
+        cursor="pointer"
+        className={styles.themeSwitchBtn}
+        title="Change language"
+      />
+      <Modal
+        title={dict.chooseLang}
+        open={isLangOpen}
+        footer={null}
+        onCancel={() => setIsLangOpen(false)}
+        styles={{ content: { flexDirection: 'column' } }}
+      >
+        <Link
+          key={'en'}
+          className="button"
+          style={{ display: 'flex' }}
+          href={'/en'}
+          scroll={true}
+          onClick={() => setIsLangOpen(false)}
+        >
+          English
+        </Link>
+        <Link
+          key={'fr'}
+          className="button"
+          style={{ display: 'flex' }}
+          href={'/fr'}
+          scroll={true}
+          onClick={() => setIsLangOpen(false)}
+        >
+          Français
+        </Link>
+        <Link
+          key={'es'}
+          className="button"
+          style={{ display: 'flex' }}
+          href={'/es'}
+          scroll={true}
+          onClick={() => setIsLangOpen(false)}
+        >
+          Español
+        </Link>
+      </Modal>
     </header>
   );
 }

@@ -13,7 +13,7 @@ import { IoSchool } from 'react-icons/io5';
 import { BsFileEarmarkCode, BsFileEarmarkCodeFill } from 'react-icons/bs';
 import { SectionContainer } from '@/components';
 
-export function Experiences() {
+export function Experiences({ dict }: { dict: any }) {
   const experiences = experiencesData.map((experience, index) => {
     const [ref, isVisible] = useIsVisible({
       freezeOnceVisible: true,
@@ -67,7 +67,7 @@ export function Experiences() {
   });
 
   return (
-    <SectionContainer title="MyExperiences" id="experiences">
+    <SectionContainer title={dict.myExperiences} id="experiences">
       <VerticalTimeline lineColor="rgb(var(--foreground-rgb))">
         {experiences}
         <VerticalTimelineElement

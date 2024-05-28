@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ dict }: { dict: any }) {
   return (
     <footer className={styles.footer}>
       <p>
-        By Carine Dupuis &copy; {new Date().getFullYear()}
+        {dict.by} Carine Dupuis &copy; 2024
         <Image
           className={styles.miniLogo}
           src="/images/logo-CDFullstack-300.png"

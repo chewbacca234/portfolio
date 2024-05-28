@@ -7,8 +7,15 @@ import {
   Projects,
   SoftSkills,
 } from '@/app/_components';
+import { getDictionary } from './dictionaries';
 
-export default function Home() {
+type Props = {
+  params: { [lang: string]: string };
+};
+
+export default async function Home({ params: { lang } }: Props) {
+  const dict = await getDictionary(lang);
+
   return (
     <main className={`${styles.main}`}>
       <Image
@@ -28,10 +35,10 @@ export default function Home() {
       />
 
       <Presentation />
-      <Projects />
-      <Experiences />
-      <SoftSkills />
-      <Contact />
+      <Projects dict={dict} />
+      <Experiences dict={dict} />
+      <SoftSkills dict={dict} />
+      <Contact dict={dict} />
 
       {/* <div className={styles.grid}>
         <a
