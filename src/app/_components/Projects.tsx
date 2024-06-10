@@ -1,14 +1,24 @@
 'use client';
 import { Carousel } from 'antd';
 import styles from './Projects.module.css';
-import projectsData from '../../../public/datas/projects.json';
 import { ProjectSlide, SectionContainer } from '@/components';
 import { useIsVisible } from '@/hooks';
-import { useRef } from 'react';
+
+type Project = {
+  name: string;
+  description: string;
+  techStack: { frontend: string[]; backend: string[] };
+  picture: string;
+  links: { url: string; label: string }[];
+};
 
 export function Projects({ dict }: { dict: any }) {
   const [ref, isVisible] = useIsVisible();
-  console.log('isVisible', isVisible);
+  // console.log('isVisible', isVisible);
+
+  const projectsData: Project[] = dict.projects.projectsData;
+
+  // console.log('projectsData', projectsData);
 
   const projects = projectsData.map(project => {
     return (
@@ -16,7 +26,7 @@ export function Projects({ dict }: { dict: any }) {
         key={project.name}
         name={project.name}
         description={project.description}
-        techStack={project.teckStack}
+        techStack={project.techStack}
         picture={project.picture}
         links={project.links}
       />
@@ -24,7 +34,7 @@ export function Projects({ dict }: { dict: any }) {
   });
 
   return (
-    <SectionContainer title={dict.myProjects} id="projects" reference={ref}>
+    <SectionContainer title={dict.projects.title} id="projects" reference={ref}>
       <Carousel autoplay={isVisible ? true : false} infinite>
         {projects}
       </Carousel>

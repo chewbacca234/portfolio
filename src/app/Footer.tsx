@@ -5,7 +5,7 @@ export default function Footer({ dict }: { dict: any }) {
   return (
     <footer className={styles.footer}>
       <p>
-        {dict.by} Carine Dupuis &copy; 2024
+        {dict.footer.by} Carine Dupuis &copy; 2024
         <Image
           className={styles.miniLogo}
           src="/images/logo-CDFullstack-300.png"

@@ -6,10 +6,10 @@ import { useTheme } from 'next-themes';
 import { useScrollPosition, useWindowSize } from '@/hooks';
 import { useState } from 'react';
 import { HeaderMenu } from '@/components';
-import { LuLanguages } from 'react-icons/lu';
 import { Modal } from 'antd';
+import Image from 'next/image';
 
-export default function Header({ dict }: { dict: any }) {
+export default function Header({ dict, lang }: { dict: any; lang: string }) {
   const { theme, setTheme } = useTheme();
   const { windowSize } = useWindowSize();
   const scrollPosition = useScrollPosition();
@@ -20,11 +20,11 @@ export default function Header({ dict }: { dict: any }) {
     label: string;
     url: string;
   }[] = [
-    { label: dict.techStack, url: `#presentation` },
-    { label: dict.projects, url: `#projects` },
-    { label: dict.experiences, url: `#experiences` },
-    { label: dict.softSkills, url: `#skills` },
-    { label: dict.contact, url: `#contact` },
+    { label: dict.header.techStackLink, url: `#presentation` },
+    { label: dict.header.projectsLink, url: `#projects` },
+    { label: dict.header.experiencesLink, url: `#experiences` },
+    { label: dict.header.softSkillsLink, url: `#skills` },
+    { label: dict.header.contactLink, url: `#contact` },
   ];
 
   // console.log('theme:', theme);
@@ -96,7 +96,7 @@ export default function Header({ dict }: { dict: any }) {
           onClick={() => setTheme('light')}
           cursor="pointer"
           className={styles.themeSwitchBtn}
-          title="Switch to light mode"
+          title={dict.header.darkModeInfo}
         />
       ) : (
         <FiMoon
@@ -104,51 +104,99 @@ export default function Header({ dict }: { dict: any }) {
           onClick={() => setTheme('dark')}
           cursor="pointer"
           className={styles.themeSwitchBtn}
-          title="Switch to dark mode"
+          title={dict.header.lightModeInfo}
         />
       )}
-      <LuLanguages
-        size="1.5rem"
+      <button
+        className="button"
+        type="button"
         onClick={() => setIsLangOpen(true)}
-        cursor="pointer"
-        className={styles.themeSwitchBtn}
-        title="Change language"
-      />
+        style={{ width: '2rem', padding: '0.5rem 0', fontSize: '80%' }}
+        title={dict.header.chooseLangModalTitle}
+      >
+        {lang.toUpperCase() ?? 'EN'}
+      </button>
       <Modal
-        title={dict.chooseLang}
+        title={dict.header.chooseLangModalTitle}
         open={isLangOpen}
         footer={null}
         onCancel={() => setIsLangOpen(false)}
-        styles={{ content: { flexDirection: 'column' } }}
+        styles={{
+          content: { flexDirection: 'column' },
+          body: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          },
+        }}
       >
         <Link
           key={'en'}
           className="button"
-          style={{ display: 'flex' }}
+          style={{
+            display: 'flex',
+            border: 'none',
+            background: 'none',
+            justifyContent: 'flex-start',
+            width: '150px',
+          }}
           href={'/en'}
           scroll={true}
           onClick={() => setIsLangOpen(false)}
         >
+          <Image
+            className={styles.flag}
+            src="/images/flags/gb.svg"
+            alt="English flag"
+            width={50}
+            height={33}
+          />
           English
         </Link>
         <Link
           key={'fr'}
           className="button"
-          style={{ display: 'flex' }}
+          style={{
+            display: 'flex',
+            border: 'none',
+            background: 'none',
+            justifyContent: 'flex-start',
+            width: '150px',
+          }}
           href={'/fr'}
           scroll={true}
           onClick={() => setIsLangOpen(false)}
         >
+          <Image
+            className={styles.flag}
+            src="/images/flags/fr.svg"
+            alt="French flag"
+            width={50}
+            height={33}
+          />
           Français
         </Link>
         <Link
           key={'es'}
           className="button"
-          style={{ display: 'flex' }}
+          style={{
+            display: 'flex',
+            border: 'none',
+            background: 'none',
+            justifyContent: 'flex-start',
+            width: '150px',
+          }}
           href={'/es'}
           scroll={true}
           onClick={() => setIsLangOpen(false)}
         >
+          <Image
+            className={styles.flag}
+            src="/images/flags/es.svg"
+            alt="Spanish flag"
+            width={50}
+            height={33}
+          />
           Español
         </Link>
       </Modal>

@@ -1,12 +1,139 @@
 {
-  "techStack": "Tech Stack",
-  "projects": "Projects",
-  "experiences": "Experiences",
-  "softSkills": "Soft Skills",
-  "contact": "Contact",
-  "by": "By",
-  "myProjects": "MyProjects",
-  "myExperiences": "MyExperiences",
-  "mySoftSkills": "MySoftSkills",
-  "chooseLang": "Choose your language"
+  "lang": "en",
+  "header": {
+    "techStackLink": "Tech Stack",
+    "projectsLink": "Projects",
+    "experiencesLink": "Experiences",
+    "softSkillsLink": "Soft Skills",
+    "contactLink": "Contact",
+    "darkModeInfo": "Switch to light mode",
+    "lightModeInfo": "Switch to dark mode",
+    "chooseLangModalTitle": "Choose your language"
+  },
+
+  "projects": {
+    "title": "MyProjects",
+    "projectsData": [
+      {
+        "name": "The Geeks News",
+        "description": "The Geeks News application is a platform that provides news about the world of technology, with the ability to save articles as favorites and hide specific articles. Explore the latest technology news and customize your reading experience.",
+        "techStack": {
+          "frontend": ["JavaScript", "React", "NextJS", "Redux"],
+          "backend": ["NodeJS", "ExpressJS", "MongoDB"]
+        },
+        "picture": "/images/projects/geeks-news-mockup.png",
+        "links": [
+          {
+            "url": "https://geeks-news.vercel.app/",
+            "label": "website"
+          },
+          {
+            "url": "https://github.com/chewbacca234/geeks-news_frontend",
+            "label": "github-front"
+          },
+          {
+            "url": "https://github.com/chewbacca234/geeks-news_backend",
+            "label": "github-back"
+          }
+        ]
+      },
+      {
+        "name": "Happy Day!",
+        "description": "This MVP (Minimum Viable Product) is a mobile application to improve your personal happiness. You will be challenged by friends or application notifications and acts of kindness suggestions to level up your well-being. Give it a try to see how you can become happier by helping other people and all the community! \rBE HAPPY!",
+        "techStack": {
+          "frontend": ["JavaScript", "ReactNative", "Expo", "Redux"],
+          "backend": ["NodeJS", "ExpressJS", "MongoDB", "Cloudinary"]
+        },
+        "picture": "/images/projects/happyday-mockup.png",
+        "links": [
+          {
+            "url": "/images/projects/happyday-qr.svg",
+            "label": "android | ios"
+          }
+        ]
+      },
+      {
+        "name": "Pwitter",
+        "description": "An instant messages application to connect people. You can add hashtags to your posts and see all the best hashtags and related posts. Full frontend app, all the backend logic (authentication, database, ...) is provided with security by the Firebase's services.",
+        "techStack": {
+          "frontend": [
+            "JavaScript",
+            "React",
+            "NextJS",
+            "Firebase",
+            "Firestore"
+          ],
+          "backend": []
+        },
+        "picture": "/images/projects/pwitter-mockup.png",
+        "links": [
+          {
+            "url": "https://pwitter-two.vercel.app/",
+            "label": "website"
+          },
+          {
+            "url": "https://github.com/chewbacca234/pwitter",
+            "label": "github"
+          }
+        ]
+      }
+    ]
+  },
+
+  "experiences": {
+    "title": "MyExperiences",
+    "experiencesData": [
+      {
+        "title": "Fullstack Web & Mobile React Teacher for La Capsule",
+        "desc": "Bootcamp training on technologies: React, NextJs, React Native, Expo, NodeJs, ExpressJs, MongoDb, PostgreSQL ...",
+        "info": "Training based on Project learning, students complete their training with the projects they have realized, including a final batch project from scratch with design management and development sprints (agile method). They also obtain a level 6 professional title.",
+        "date": "02/2024",
+        "icon": "teacher"
+      },
+      {
+        "title": "Creation of Fullstack CD",
+        "desc": "Consulting company in fullstack web and mobile development.",
+        "info": "Design and development of web & mobile applications. Adult training in fullstack programming techniques focused on JavaScript, HTML/CSS, and React for the frontend, and NodeJS/ExpressJS on the backend.",
+        "date": "02/2024",
+        "icon": "dev"
+      },
+      {
+        "title": "Training in Web & Mobile Application Design & Development by La Capsule",
+        "desc": "10-week bootcamp training in web and mobile development focused on technologies: React, React Native, NextJs, NodeJs, ExpressJs, MongoDb, ...",
+        "info": "Obtaining the professional title of Web & Mobile Application Developer Designer.",
+        "date": "08/2023",
+        "icon": "school"
+      },
+      {
+        "title": "Creation of Grafic Art On The Road",
+        "desc": "Graphic design company.",
+        "info": "Creation of an online sales website 'Designed For Campers' via Shopify. Creation of original designs for stickers, clothing, accessories related to nomadic life.",
+        "date": "07/2019",
+        "icon": "t-shirt"
+      }
+    ]
+  },
+
+  "softSkills": { "title": "MySoftSkills" },
+
+  "contact": {
+    "title": "Contact",
+    "typeWritter1": "If you have a question",
+    "typeWritterDelete1": 8,
+    "typeWritter2": "project",
+    "typeWritterDelete2": 14,
+    "typeWritter3": "need a REACT/JS teacher",
+    "typeWritterDelete3": 18,
+    "typeWritter4": "to contact me...",
+    "form": {
+      "title": "Contact form",
+      "input1": "email",
+      "input2": "message",
+      "submit": "Send"
+    }
+  },
+
+  "footer": {
+    "by": "By"
+  }
 }

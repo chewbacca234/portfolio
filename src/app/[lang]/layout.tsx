@@ -43,7 +43,7 @@ export default async function RootLayout({
     <html lang={lang}>
       <body className={inter.className}>
         <DarkModeProvider>
-          <Header dict={dict} />
+          <Header dict={dict} lang={lang} />
           {children}
           <Footer dict={dict} />
         </DarkModeProvider>

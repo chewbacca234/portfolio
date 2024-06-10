@@ -76,6 +76,12 @@
   min-width: 2rem;
 }
 
+/* .flag {
+  resize: 'cover';
+  width: 50px;
+  height: 33px;
+} */
+
 /* Medium devices (landscape tablets, 960px and up) */
 @media only screen and (min-width: 960px) {
   .header {

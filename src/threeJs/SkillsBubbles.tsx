@@ -5,12 +5,12 @@ import softSkillsData from '../../public/datas/softSkills.json';
 import { useTheme } from 'next-themes';
 import { useWindowSize } from '@/hooks';
 
-export function SkillsBubbles() {
+export function SkillsBubbles({ dict }: { dict: any }) {
   const refContainer = useRef<HTMLDivElement>(null);
   const currentTheme = useTheme();
   const { windowSize } = useWindowSize();
 
-  let skills = softSkillsData.lightSkillsImg;
+  let skills = Object(softSkillsData)[dict.lang].lightSkillsImg;
   // useEffect(() => {
   //   if (currentTheme.theme === 'dark') {
   //     skills = softSkillsData.darkSkillsImg;
@@ -35,7 +35,7 @@ export function SkillsBubbles() {
   // Initialize 3D scene
   function init(): void {
     if (currentTheme.theme === 'dark') {
-      skills = softSkillsData.darkSkillsImg;
+      skills = Object(softSkillsData)[dict.lang].darkSkillsImg;
     }
 
     renderer = new THREE.WebGLRenderer({
@@ -71,7 +71,7 @@ export function SkillsBubbles() {
     // Create sphere geometry
     const geometry = new THREE.SphereGeometry(200, 64, 32);
 
-    skills.forEach(skill => {
+    skills.forEach((skill: string) => {
       // TEXTURE MAP
       const texture: THREE.Texture = new THREE.TextureLoader().load(
         skill,

@@ -1,12 +1,140 @@
 {
-  "techStack": "Tech Stack",
-  "projects": "Projets",
-  "experiences": "Expériences",
-  "softSkills": "Soft Skills",
-  "contact": "Contact",
-  "by": "Par",
-  "myProjects": "MesProjects",
-  "myExperiences": "MesExperiences",
-  "mySoftSkills": "MesSoftSkills",
-  "chooseLang": "Choisi ta langue"
+  "lang": "fr",
+
+  "header": {
+    "techStackLink": "Tech Stack",
+    "projectsLink": "Projets",
+    "experiencesLink": "Expériences",
+    "softSkillsLink": "Soft Skills",
+    "contactLink": "Contact",
+    "darkModeInfo": "Passer au mode clair",
+    "lightModeInfo": "Passer au mode sombre",
+    "chooseLangModalTitle": "Choisissez votre langue"
+  },
+
+  "projects": {
+    "title": "MesProjects",
+    "projectsData": [
+      {
+        "name": "The Geeks News",
+        "description": "L'application The Geeks News est une plateforme qui fournit des nouvelles sur le monde de la technologie, avec la possibilité de sauvegarder des articles en favoris et de masquer des articles spécifiques. Explorez les dernières nouvelles technologiques et personnalisez votre expérience de lecture.",
+        "techStack": {
+          "frontend": ["JavaScript", "React", "NextJS", "Redux"],
+          "backend": ["NodeJS", "ExpressJS", "MongoDB"]
+        },
+        "picture": "/images/projects/geeks-news-mockup.png",
+        "links": [
+          {
+            "url": "https://geeks-news.vercel.app/",
+            "label": "website"
+          },
+          {
+            "url": "https://github.com/chewbacca234/geeks-news_frontend",
+            "label": "github-front"
+          },
+          {
+            "url": "https://github.com/chewbacca234/geeks-news_backend",
+            "label": "github-back"
+          }
+        ]
+      },
+      {
+        "name": "Happy Day!",
+        "description": "Ce MVP (Produit Minimum Viable) est une application mobile pour améliorer votre bonheur personnel. Vous serez mis au défi par des amis ou des notifications de l'application et des suggestions d'actes de gentillesse pour améliorer votre bien-être. Essayez-le pour voir comment vous pouvez devenir plus heureux en aidant les autres et toute la communauté ! \rBE HAPPY !",
+        "techStack": {
+          "frontend": ["JavaScript", "ReactNative", "Expo", "Redux"],
+          "backend": ["NodeJS", "ExpressJS", "MongoDB", "Cloudinary"]
+        },
+        "picture": "/images/projects/happyday-mockup.png",
+        "links": [
+          {
+            "url": "/images/projects/happyday-qr.svg",
+            "label": "android | ios"
+          }
+        ]
+      },
+      {
+        "name": "Pwitter",
+        "description": "Une application de messages instantanés pour connecter les gens. Vous pouvez ajouter des hashtags à vos publications et voir tous les meilleurs hashtags et publications connexes. Application entièrement frontend, toute la logique backend (authentification, base de données, ...) est fournie en toute sécurité par les services de Firebase.",
+        "techStack": {
+          "frontend": [
+            "JavaScript",
+            "React",
+            "NextJS",
+            "Firebase",
+            "Firestore"
+          ],
+          "backend": []
+        },
+        "picture": "/images/projects/pwitter-mockup.png",
+        "links": [
+          {
+            "url": "https://pwitter-two.vercel.app/",
+            "label": "website"
+          },
+          {
+            "url": "https://github.com/chewbacca234/pwitter",
+            "label": "github"
+          }
+        ]
+      }
+    ]
+  },
+
+  "experiences": {
+    "title": "MesExperiences",
+    "experiencesData": [
+      {
+        "title": "Teacher Fullstack Web & Mobile React pour La Capsule",
+        "desc": "Formations Bootcamp sur les technos : React, NextJs, React Native, Expo, NodeJs, ExpressJs, MongoDb, PostgreSQL ...",
+        "info": "Formation basée sur le Project learning, les étudiants finissent leur formation avec les projets réalisés en poche dont un projet de fin de batch from scratch avec gestion de la conception et des sprints de développement (méthode agile). Il obtiennent également un titre professionel de niveau 6.",
+        "date": "02/2024",
+        "icon": "teacher"
+      },
+      {
+        "title": "Création de CD Fullstack",
+        "desc": "Société de consulting en developpement web et mobile fullstack.",
+        "info": "Conception et développement d'applications web & mobile. Formations d'adultes aux techniques de programmation fullstack axées sur JavaScript,HTML/CSS et React pour le frontend, et NodeJS/ExpreesJS côté backend.",
+        "date": "02/2024",
+        "icon": "dev"
+      },
+      {
+        "title": "Formation Conception & développement d'applications web & mobile par La Capsule",
+        "desc": "Formation bootcamp de 10 semaines au développement web et mobile axée sur les technos : React, React Native, NextJs, NodeJs, ExpressJs, MongoDb, ...",
+        "info": "Obtention du titre professionel de Concepteur développeur d'applications web & mobile.",
+        "date": "08/2023",
+        "icon": "school"
+      },
+      {
+        "title": "Création de Grafic Art On The Road",
+        "desc": "Société de design graphique.",
+        "info": "Réalisation d'un site web de vente en ligne \"Designed For Campers\" via Shopify. Conception de designs originaux pour stickers, vêtements, accessoires autour de la vie nomade.",
+        "date": "07/2019",
+        "icon": "t-shirt"
+      }
+    ]
+  },
+
+  "softSkills": { "title": "MesSoftSkills" },
+
+  "contact": {
+    "title": "Contact",
+    "typeWritter1": "Si vous avez une question",
+    "typeWritterDelete1": 10,
+    "typeWritter2": " projet",
+    "typeWritterDelete2": 9,
+    "typeWritter3": "besoin d'un enseignant en REACT/JS",
+    "typeWritterDelete3": 26,
+    "typeWritter4": "e me contacter...",
+    "form": {
+      "title": "Formulaire de contact",
+      "input1": "e-mail",
+      "input2": "message",
+      "submit": "Envoyer"
+    }
+  },
+
+  "footer": {
+    "by": "Par"
+  }
 }
