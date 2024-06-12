@@ -1,6 +1,5 @@
 'use client';
 import { Carousel } from 'antd';
-import styles from './Projects.module.css';
 import { ProjectSlide, SectionContainer } from '@/components';
 import { useIsVisible } from '@/hooks';
 
