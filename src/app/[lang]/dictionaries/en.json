@@ -114,7 +114,42 @@
     ]
   },
 
-  "softSkills": { "title": "MySoftSkills" },
+  "softSkills": {
+    "title": "MySoftSkills",
+    "skills": {
+      "lightMode": [
+        "/images/softSkills/en/lightMode/adaptability.jpg",
+        "/images/softSkills/en/lightMode/attention-to-detail.jpg",
+        "/images/softSkills/en/lightMode/coaching-and-mentoring.jpg",
+        "/images/softSkills/en/lightMode/communication.jpg",
+        "/images/softSkills/en/lightMode/creativity.jpg",
+        "/images/softSkills/en/lightMode/curiousity.jpg",
+        "/images/softSkills/en/lightMode/empathy.jpg",
+        "/images/softSkills/en/lightMode/leadership.jpg",
+        "/images/softSkills/en/lightMode/learning-agility.jpg",
+        "/images/softSkills/en/lightMode/patience.jpg",
+        "/images/softSkills/en/lightMode/positive-attitude.jpg",
+        "/images/softSkills/en/lightMode/problem-solving.jpg",
+        "/images/softSkills/en/lightMode/time-management.jpg"
+      ],
+
+      "darkMode": [
+        "/images/softSkills/en/darkMode/adaptability.jpg",
+        "/images/softSkills/en/darkMode/attention-to-detail.jpg",
+        "/images/softSkills/en/darkMode/coaching-and-mentoring.jpg",
+        "/images/softSkills/en/darkMode/communication.jpg",
+        "/images/softSkills/en/darkMode/creativity.jpg",
+        "/images/softSkills/en/darkMode/curiousity.jpg",
+        "/images/softSkills/en/darkMode/empathy.jpg",
+        "/images/softSkills/en/darkMode/leadership.jpg",
+        "/images/softSkills/en/darkMode/learning-agility.jpg",
+        "/images/softSkills/en/darkMode/patience.jpg",
+        "/images/softSkills/en/darkMode/positive-attitude.jpg",
+        "/images/softSkills/en/darkMode/problem-solving.jpg",
+        "/images/softSkills/en/darkMode/time-management.jpg"
+      ]
+    }
+  },
 
   "contact": {
     "title": "Contact",

@@ -10,12 +10,7 @@ export function SkillsBubbles({ dict }: { dict: any }) {
   const currentTheme = useTheme();
   const { windowSize } = useWindowSize();
 
-  let skills = Object(softSkillsData)[dict.lang].lightSkillsImg;
-  // useEffect(() => {
-  //   if (currentTheme.theme === 'dark') {
-  //     skills = softSkillsData.darkSkillsImg;
-  //   }
-  // }, [currentTheme.theme]);
+  let skills: string[] = dict.softSkills.skills.darkMode;
 
   let camera: THREE.PerspectiveCamera,
     scene: THREE.Scene,
@@ -24,9 +19,6 @@ export function SkillsBubbles({ dict }: { dict: any }) {
   let sceneHeight: number = (windowSize.innerHeight * 70) / 100;
   let sceneWidth: number = windowSize.innerWidth;
 
-  let sceneHalfX: number = sceneWidth / 2;
-  let sceneHalfY: number = sceneHeight / 2;
-
   const bubbleContainerWidth = sceneWidth * 9;
   const bubbleContainerHeight = sceneHeight * 5;
 
@@ -34,8 +26,8 @@ export function SkillsBubbles({ dict }: { dict: any }) {
 
   // Initialize 3D scene
   function init(): void {
-    if (currentTheme.theme === 'dark') {
-      skills = Object(softSkillsData)[dict.lang].darkSkillsImg;
+    if (currentTheme.theme === 'light') {
+      skills = dict.softSkills.skills.lightMode;
     }
 
     renderer = new THREE.WebGLRenderer({
@@ -91,7 +83,7 @@ export function SkillsBubbles({ dict }: { dict: any }) {
       material.needsUpdate = true;
 
       // Create the bubbles 3D objects
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 2; i++) {
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.x =
           Math.random() * bubbleContainerWidth - bubbleContainerWidth / 2;
