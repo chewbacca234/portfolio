@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import softSkillsData from '../../public/datas/softSkills.json';
 import { useTheme } from 'next-themes';
 import { useWindowSize } from '@/hooks';
 
