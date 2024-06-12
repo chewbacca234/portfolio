@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import styles from './Presentation.module.css';
-import {} from '@/hooks';
 import { TechStack } from '.';
 import Link from 'next/link';
 
