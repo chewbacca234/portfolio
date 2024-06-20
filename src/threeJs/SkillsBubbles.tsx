@@ -128,8 +128,6 @@ export function SkillsBubbles({ dict }: { dict: any }) {
 
   // Animation loop
   function animate(): void {
-    requestAnimationFrame(animate);
-
     const timer = 0.0001 * Date.now();
 
     camera.lookAt(scene.position);
@@ -149,6 +147,7 @@ export function SkillsBubbles({ dict }: { dict: any }) {
     }
 
     renderer.render(scene, camera);
+    requestAnimationFrame(animate);
   }
 
   useEffect(() => {
