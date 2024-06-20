@@ -2,6 +2,7 @@
 import { Carousel } from 'antd';
 import { ProjectSlide, SectionContainer } from '@/components';
 import { useIsVisible } from '@/hooks';
+import { useEffect } from 'react';
 
 type Project = {
   name: string;
@@ -14,6 +15,8 @@ type Project = {
 export function Projects({ dict }: { dict: any }) {
   const [ref, isVisible] = useIsVisible();
   // console.log('isVisible', isVisible);
+
+  let hasPointer: boolean = window.matchMedia('(any-hover: hover)').matches;
 
   const projectsData: Project[] = dict.projects.projectsData;
 
@@ -34,7 +37,7 @@ export function Projects({ dict }: { dict: any }) {
 
   return (
     <SectionContainer title={dict.projects.title} id="projects" reference={ref}>
-      <Carousel autoplay={isVisible ? true : false} infinite>
+      <Carousel autoplay={isVisible && hasPointer ? true : false} infinite>
         {projects}
       </Carousel>
     </SectionContainer>
