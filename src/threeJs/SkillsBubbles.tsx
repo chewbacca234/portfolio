@@ -7,7 +7,9 @@ import { useWindowSize } from '@/hooks';
 export function SkillsBubbles({ dict }: { dict: any }) {
   const refContainer = useRef<HTMLDivElement>(null);
   const currentTheme = useTheme();
-  const { windowSize } = useWindowSize();
+  const { windowSize, screenType } = useWindowSize();
+
+  const smallScreens = screenType === 'S-screens';
 
   let skills: string[] = dict.softSkills.skills.darkMode;
 
@@ -82,7 +84,8 @@ export function SkillsBubbles({ dict }: { dict: any }) {
       material.needsUpdate = true;
 
       // Create the bubbles 3D objects
-      for (let i = 0; i < 2; i++) {
+      const multiplyBy: number = smallScreens ? 1 : 2;
+      for (let i = 0; i < multiplyBy; i++) {
         const mesh = new THREE.Mesh(geometry, material);
         mesh.position.x =
           Math.random() * bubbleContainerWidth - bubbleContainerWidth / 2;
