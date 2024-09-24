@@ -11,6 +11,10 @@
     "chooseLangModalTitle": "Choose your language"
   },
 
+  "presentation": {
+    "clickMe": "Click me to open my CV!"
+  },
+
   "projects": {
     "title": "MyProjects",
     "projectsData": [

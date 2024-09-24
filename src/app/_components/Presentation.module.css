@@ -81,6 +81,70 @@
   /* margin-top: -8vh; */
 }
 
+/* .clickMe {
+  padding: 24px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 120px;
+  background-color: lightblue;
+  color: black;
+  border-radius: 50%;
+  translate: 100px -60%;
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  z-index: 10;
+} */
+
+.clickMe {
+  display: flex;
+  background-color: lightblue;
+  color: black;
+  padding: 24px 32px;
+  border-radius: 30px;
+  width: 160px;
+  height: 120px;
+  margin: 20px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  z-index: 100;
+  top: 130px;
+  left: 50%;
+  transform: translateX(100px);
+}
+.clickMe:before,
+.clickMe:after {
+  content: '';
+  background-color: lightblue;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+.clickMe:before {
+  width: 44px;
+  height: 44px;
+  top: -12px;
+  left: 28px;
+  box-shadow: -50px 30px 0 -12px lightblue;
+}
+.clickMe:after {
+  bottom: -10px;
+  right: 26px;
+  width: 30px;
+  height: 30px;
+  box-shadow: 40px -34px 0 0 lightblue, -28px -6px 0 -2px lightblue,
+    -24px 17px 0 -6px lightblue, -5px 25px 0 -10px lightblue;
+}
+
 @-webkit-keyframes flip {
   0% {
     transform: rotateY(360deg);

@@ -34,7 +34,7 @@ export default async function Home({ params: { lang } }: Props) {
         height={1422}
       />
 
-      <Presentation />
+      <Presentation dict={dict} />
       <Projects dict={dict} />
       <Experiences dict={dict} />
       <SoftSkills dict={dict} />
