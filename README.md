@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CD FullStack – Portfolio Demo
 
-## Getting Started
+Bienvenue ! Welcome! ¡Bienvenido!
 
-First, run the development server:
+Ce projet est une démonstration interactive et multilingue réalisée par Carine Dupuis. Ici, vous trouverez une vitrine de mes compétences en développement web & mobile, le tout saupoudré d'humour, de créativité, et de quelques nuits (très) courtes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Choisissez votre langue / Choose your language / Elige tu idioma
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🇫🇷 [Lire le README en français](./README.fr.md)
+- 🇬🇧 [Read the README in English](./README.en.md)
+- 🇪🇸 [Lee el README en español](./README.es.md)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## À propos du projet
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ce site est un portfolio moderne, responsive et animé, conçu pour présenter mes projets, ma stack technique, et ma passion pour le code (et les nuits blanches !).
 
-## Learn More
+Pour plus de détails, anecdotes et fonctionnalités, consultez le README dans la langue de votre choix ci-dessus.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+_Merci de votre visite, thank you for visiting, ¡gracias por tu visita!_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Carine Dupuis – CD FullStack
