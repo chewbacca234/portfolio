@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
-    innerHeight: window.innerHeight,
-    innerWidth: window.innerWidth,
+    innerHeight: typeof window !== 'undefined' ? window.innerHeight : 0,
+    innerWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
   });
 
   const screenType: 'XL-screens' | 'L-screens' | 'M-screens' | 'S-screens' =
@@ -17,17 +17,17 @@ export const useWindowSize = () => {
       : 'S-screens';
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const windowSizeHandler = () => {
       setWindowSize({
         innerHeight: window.innerHeight,
         innerWidth: window.innerWidth,
       });
     };
-    window.addEventListener('resize', windowSizeHandler);
 
-    return () => {
-      window.removeEventListener('resize', windowSizeHandler);
-    };
+    window.addEventListener('resize', windowSizeHandler);
+    return () => window.removeEventListener('resize', windowSizeHandler);
   }, []);
 
   return { windowSize, screenType };

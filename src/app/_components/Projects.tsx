@@ -1,8 +1,8 @@
-'use client';
-import { Carousel } from 'antd';
-import { ProjectSlide, SectionContainer } from '@/components';
-import { useIsVisible, useWindowSize } from '@/hooks';
-import { useEffect } from 'react';
+"use client";
+import { Carousel } from "antd";
+import { ProjectSlide, SectionContainer } from "@/components";
+import { useIsVisible, useWindowSize } from "@/hooks";
+import { useEffect } from "react";
 
 type Project = {
   name: string;
@@ -18,13 +18,13 @@ export function Projects({ dict }: { dict: any }) {
 
   const { screenType } = useWindowSize();
   const smallAndMediumScreens =
-    screenType === 'M-screens' || screenType === 'S-screens';
+    screenType === "M-screens" || screenType === "S-screens";
 
   const projectsData: Project[] = dict.projects.projectsData;
 
   // console.log('projectsData', projectsData);
 
-  const projects = projectsData.map(project => {
+  const projects = projectsData.map((project) => {
     return (
       <ProjectSlide
         key={project.name}

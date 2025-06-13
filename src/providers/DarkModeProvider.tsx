@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { ThemeProvider } from 'next-themes';
-import { useEffect, useState } from 'react';
-import RingLoader from 'react-spinners/RingLoader';
+import { ThemeProvider } from "next-themes";
+import { useEffect, useState } from "react";
+import RingLoader from "react-spinners/RingLoader";
 
 export const DarkModeProvider = ({
   children,
@@ -12,9 +12,10 @@ export const DarkModeProvider = ({
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    setTimeout(() => setMounted(true), 1000);
+    const timer = setTimeout(() => setMounted(true), 300);
 
     return () => {
+      clearTimeout(timer);
       setMounted(false);
     };
   }, []);
@@ -22,23 +23,24 @@ export const DarkModeProvider = ({
   return !mounted ? (
     <div
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100vw',
-        height: '100vh',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "var(--background)",
       }}
     >
       <RingLoader
-        color="purple"
+        color="var(--foreground)"
         loading={true}
-        size={150}
+        size={100}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
     </div>
   ) : (
-    <ThemeProvider enableSystem={false} defaultTheme="dark">
+    <ThemeProvider enableSystem={false} defaultTheme="dark" attribute="class">
       {children}
     </ThemeProvider>
   );

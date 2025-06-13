@@ -1,7 +1,7 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+"use client";
+import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 
 type AnimatedIconsProps = {
   iconSources: string[];
@@ -80,13 +80,13 @@ export function AnimatedIcons(props: AnimatedIconsProps) {
     cursorPosition.y = window.innerHeight / 2;
 
     // Create an event listener for the window size
-    window.addEventListener('resize', onWindowResize);
+    window.addEventListener("resize", onWindowResize);
 
     // Create an event listener for the scroll
-    window.addEventListener('scroll', iconRotationUpdate);
+    window.addEventListener("scroll", iconRotationUpdate);
 
     // Create an event listener for the mouse moves
-    window.addEventListener('mousemove', iconRotationUpdate);
+    window.addEventListener("mousemove", iconRotationUpdate);
 
     // Create a scene
     scene = new THREE.Scene();
@@ -108,8 +108,10 @@ export function AnimatedIcons(props: AnimatedIconsProps) {
     renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
+      powerPreference: "high-performance",
+      precision: "mediump",
     });
-    renderer.setPixelRatio(aspectRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(sceneWidth, sceneHeight);
 
     refContainer.current &&
@@ -174,46 +176,70 @@ export function AnimatedIcons(props: AnimatedIconsProps) {
       1.5
     );
     scene.add(ambientLight);
-  }
 
-  // Animation loop
-  function animate(): void {
-    requestAnimationFrame(animate);
+    // Optimize animation loop
+    let animationFrameId: number;
+    function animate(): void {
+      animationFrameId = requestAnimationFrame(animate);
 
-    icons.forEach(icon => {
-      icon.rotation.x =
-        (iconRotation.x +
-          (target.y - icon.position.y) / (window.innerHeight / 2)) *
-        2;
-      icon.rotation.y =
-        (iconRotation.y +
-          (target.x - icon.position.x) / (window.innerWidth / 2)) *
-        2;
-    });
-    renderer.render(scene, camera);
+      // Only update if component is mounted and visible
+      if (!refContainer.current) {
+        cancelAnimationFrame(animationFrameId);
+        return;
+      }
 
-    props.getAnimatedIconsLoadingState
-      ? props.getAnimatedIconsLoadingState(false)
-      : null;
+      icons.forEach((icon) => {
+        icon.rotation.x =
+          (iconRotation.x +
+            (target.y - icon.position.y) / (window.innerHeight / 2)) *
+          2;
+        icon.rotation.y =
+          (iconRotation.y +
+            (target.x - icon.position.x) / (window.innerWidth / 2)) *
+          2;
+      });
+      renderer.render(scene, camera);
+
+      props.getAnimatedIconsLoadingState
+        ? props.getAnimatedIconsLoadingState(false)
+        : null;
+    }
+
+    // Use Intersection Observer to pause animation when not visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate();
+          } else {
+            cancelAnimationFrame(animationFrameId);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (refContainer.current) {
+      observer.observe(refContainer.current);
+    }
+
+    // Cleanup
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animationFrameId);
+      renderer.dispose();
+    };
   }
 
   useEffect(() => {
     setSceneParams();
-    init();
-    animate();
-
-    return () => {
-      window.removeEventListener('mousemove', iconRotationUpdate);
-      window.removeEventListener('scroll', iconRotationUpdate);
-      window.removeEventListener('resize', onWindowResize);
-
-      renderer.dispose();
-    };
+    const cleanup = init();
+    return cleanup;
   }, []);
 
   return (
     <div
-      style={{ backgroundColor: 'transparent', zIndex: 10 }}
+      style={{ backgroundColor: "transparent", zIndex: 10 }}
       ref={refContainer}
     ></div>
   );
