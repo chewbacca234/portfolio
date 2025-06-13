@@ -1,14 +1,15 @@
-'use client';
-import Image from 'next/image';
-import styles from './ProjectSlide.module.css';
-import Link from 'next/link';
-import { FiGithub, FiGlobe, FiLink2 } from 'react-icons/fi';
-import { AiOutlineApple } from 'react-icons/ai';
-import { PiAndroidLogo } from 'react-icons/pi';
-import { Modal } from 'antd';
-import { useState } from 'react';
+"use client";
+import Image from "next/image";
+import styles from "./ProjectSlide.module.css";
+import Link from "next/link";
+import { FiGithub, FiGlobe, FiLink2 } from "react-icons/fi";
+import { AiOutlineApple } from "react-icons/ai";
+import { PiAndroidLogo } from "react-icons/pi";
+import { Modal } from "antd";
+import { useState } from "react";
+import React from "react";
 
-export function ProjectSlide({
+export const ProjectSlide = React.memo(function ProjectSlide({
   name,
   description,
   techStack,
@@ -22,7 +23,7 @@ export function ProjectSlide({
   links: { url: string; label: string }[];
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [qrCodeSrc, setQrCodeSrc] = useState('');
+  const [qrCodeSrc, setQrCodeSrc] = useState("");
 
   function handleOpenModal(src: string) {
     setQrCodeSrc(src);
@@ -30,13 +31,13 @@ export function ProjectSlide({
   }
 
   function handleCloseModal() {
-    setQrCodeSrc('');
+    setQrCodeSrc("");
     setIsModalOpen(false);
   }
 
-  const stackItems = links.map(linkItem => {
+  const stackItems = links.map((linkItem) => {
     switch (linkItem.label) {
-      case 'website':
+      case "website":
         return (
           <Link
             key={linkItem.label}
@@ -49,9 +50,9 @@ export function ProjectSlide({
           </Link>
         );
 
-      case 'github-front':
-      case 'github-back':
-      case 'github':
+      case "github-front":
+      case "github-back":
+      case "github":
         return (
           <Link
             key={linkItem.label}
@@ -64,7 +65,7 @@ export function ProjectSlide({
           </Link>
         );
 
-      case 'android':
+      case "android":
         return (
           <button
             key={linkItem.label}
@@ -76,7 +77,7 @@ export function ProjectSlide({
           </button>
         );
 
-      case 'ios':
+      case "ios":
         return (
           <button
             key={linkItem.label}
@@ -88,7 +89,7 @@ export function ProjectSlide({
           </button>
         );
 
-      case 'android | ios':
+      case "android | ios":
         return (
           <button
             key={linkItem.label}
@@ -132,14 +133,14 @@ export function ProjectSlide({
         </div>
         <div className={styles.infos}>
           <div className={styles.itemsContainer}>
-            {techStack.frontend.map(stackItemFront => {
+            {techStack.frontend.map((stackItemFront) => {
               return (
                 <p key={stackItemFront} className={styles.stackItemFront}>
                   {stackItemFront}
                 </p>
               );
             })}
-            {techStack.backend.map(stackItemBack => {
+            {techStack.backend.map((stackItemBack) => {
               return (
                 <p key={stackItemBack} className={styles.stackItemBack}>
                   {stackItemBack}
@@ -161,7 +162,7 @@ export function ProjectSlide({
           wrapper: styles.modal,
           body: styles.modalBody,
         }}
-        style={{ maxWidth: '80vw', top: '0' }}
+        style={{ maxWidth: "80vw", top: "0" }}
       >
         <Image
           src={qrCodeSrc}
@@ -173,4 +174,4 @@ export function ProjectSlide({
       </Modal>
     </div>
   );
-}
+});

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { ThemeProvider } from 'next-themes';
-import { useEffect, useState } from 'react';
-import RingLoader from 'react-spinners/RingLoader';
+import { ThemeProvider } from "next-themes";
+import { useEffect, useState } from "react";
+import RingLoader from "react-spinners/RingLoader";
 
 export const DarkModeProvider = ({
   children,
@@ -22,11 +22,11 @@ export const DarkModeProvider = ({
   return !mounted ? (
     <div
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100vw',
-        height: '100vh',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh",
       }}
     >
       <RingLoader
@@ -38,7 +38,12 @@ export const DarkModeProvider = ({
       />
     </div>
   ) : (
-    <ThemeProvider enableSystem={false} defaultTheme="dark">
+    <ThemeProvider
+      enableSystem={false}
+      defaultTheme="dark"
+      attribute="data-theme"
+      value={{ light: "light", dark: "dark" }}
+    >
       {children}
     </ThemeProvider>
   );
