@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.cd-fullstack.dev/sitemap.xml
+
+# Disallow admin or private routes if you add them later
+Disallow: /api/
+Disallow: /admin/ 

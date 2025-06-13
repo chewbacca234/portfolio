@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import styles from './Contact.module.css';
-import { FiGithub, FiGlobe, FiLink2 } from 'react-icons/fi';
-import { SectionContainer, TypeWriter } from '@/components';
-import { MdEmail } from 'react-icons/md';
-import { IoMail } from 'react-icons/io5';
-import { IoLogoGithub, IoLogoLinkedin, IoLogoWhatsapp } from 'react-icons/io';
+import Link from "next/link";
+import styles from "./Contact.module.css";
+import { FiGithub, FiGlobe, FiLink2 } from "react-icons/fi";
+import { SectionContainer, TypeWriter } from "@/components";
+import { MdEmail } from "react-icons/md";
+import { IoMail } from "react-icons/io5";
+import { IoLogoGithub, IoLogoLinkedin, IoLogoWhatsapp } from "react-icons/io";
 
 export function Contact({ dict }: { dict: any }) {
   return (
@@ -15,11 +15,11 @@ export function Contact({ dict }: { dict: any }) {
       </Link>
 
       <Link
-        href="mailto:carine.dupuis.es@gmail.com"
+        href="mailto:contact@cd-fullstack.dev"
         target="_blank"
         className={styles.link}
       >
-        carine.dupuis.es@gmail.com
+        contact@cd-fullstack.dev
       </Link>
 
       <div className={styles.iconsContainer}>
@@ -32,7 +32,7 @@ export function Contact({ dict }: { dict: any }) {
         </Link>
 
         <Link
-          href="mailto:carine.dupuis.es@gmail.com"
+          href="mailto:contact@cd-fullstack.dev"
           target="_blank"
           className={styles.link}
         >
