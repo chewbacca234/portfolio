@@ -20,6 +20,21 @@
     "title": "MesProjects",
     "projectsData": [
       {
+        "name": "ABI Consult",
+        "description": "Un site web responsive pour une société de consulting en QA, formations logiciels métiers et assistance à la gestion immobilière. Une présentation des services proposés, des CTA pour inciter les visiteurs à prendre contact, un design sobre et élégant, renforçant l'identité de la société. Une navigation simple et efficace.",
+        "techStack": {
+          "frontend": ["JavaScript", "React", "NextJS"],
+          "backend": []
+        },
+        "picture": "/images/projects/abiconsult-mockup.png",
+        "links": [
+          {
+            "url": "https://abiconsult.fr/",
+            "label": "website"
+          }
+        ]
+      },
+      {
         "name": "The Geeks News",
         "description": "L'application The Geeks News est une plateforme qui fournit des nouvelles sur le monde de la technologie, avec la possibilité de sauvegarder des articles en favoris et de masquer des articles spécifiques. Explorez les dernières nouvelles technologiques et personnalisez votre expérience de lecture.",
         "techStack": {

@@ -2,7 +2,6 @@
 import { Carousel } from "antd";
 import { ProjectSlide, SectionContainer } from "@/components";
 import { useIsVisible, useWindowSize } from "@/hooks";
-import { useEffect } from "react";
 
 type Project = {
   name: string;
