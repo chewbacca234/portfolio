@@ -12,11 +12,8 @@ export const DarkModeProvider = ({
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    setTimeout(() => setMounted(true), 1000);
-
-    return () => {
-      setMounted(false);
-    };
+    setMounted(true);
+    return () => setMounted(false);
   }, []);
 
   return !mounted ? (
